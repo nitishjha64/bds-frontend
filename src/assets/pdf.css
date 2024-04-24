@@ -1,0 +1,40 @@
+.doc-cnt2{    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    text-transform: capitalize;
+}
+.doc-cnt2 tr {min-height: 140px;}
+.pdf-doc th, td {font-size: 13px; padding: 5px 10px ! IMPORTANT;}
+@media only screen and (max-width: 600px) {
+    .pdf-doc {width: 100% ! IMPORTANT;}
+    .doc-cnt2 tr {width: 100%;justify-content: center;}
+    .pdf-doc th, td {flex-wrap: wrap;min-width: 150px;display: flex;}
+    .doc-cnt1 .row {display: flex;flex-direction: column-reverse; }
+    .doc-cnt1 .right img {width: 35% !IMPORTANT;}
+    .pdf-doc th, td {font-size: 10px;}
+} 
+
+@media print { 
+    html, body { height: initial !important; overflow: initial !important; }
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+}

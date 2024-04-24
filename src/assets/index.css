@@ -1,0 +1,23 @@
+.cstm_tab{
+  padding: 0px !important;
+}
+.machine_radio>div label{color: white !important; padding-left: 10px;}
+svg.feather.feather-search {
+  position: absolute;
+  top: 11px;
+  right: 9px;
+  width: 18px;
+  height: 18px;
+  color: #bfc9d4;
+}
+div#zero-config1_filter{
+  text-align: right;
+  float: right;
+  position: relative;
+  margin-bottom: 0;
+  font-weight: normal;
+  white-space: nowrap;
+}
+.dt--top-section {
+  margin: 20px 21px 20px 21px;
+}
