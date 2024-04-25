@@ -73,7 +73,7 @@ function Login() {
   
         <div className="auth-container d-flex signup">
             <div className="container mx-auto align-self-center row">
-                <Form noValidate onSubmit={handleSubmit}>
+                <Form noValidate onSubmit={handleSubmit}  className='col-md-12'>
                     <div className="card col-md-6 m-auto">
                         <div className="row">
                             <div className="col-md-12 mb-3 logo">
