@@ -5,12 +5,11 @@ import moment from "moment";
 // eslint-disable-next-line react/display-name
 const PrintCertificate = forwardRef((props, ref) => {
     const {data} = props
-    console.log('DATA', data)
 
     return (
         <>
             <div ref={ref}>
-            {data && data.map((val, i) => (
+            {props.data && data && data.length > 0 && data.map((val, i) => (
                 // eslint-disable-next-line react/jsx-key
                 <div
                 className="pdf-doc"
