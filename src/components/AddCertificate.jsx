@@ -14,18 +14,18 @@ const AddCertificate = () => {
         machine_id : '', 
         checked_by : '', 
         crowd : 1, 
-        motor_switch : '', 
-        insulation_resistance : '', 
-        perpendicularity : '', 
+        motor_switch : 'OK', 
+        insulation_resistance : 'OK', 
+        perpendicularity : 'OK', 
         accessories : 'OK', 
         observation : '', 
-        tolerance_of_spindle : '', 
+        tolerance_of_spindle : 'OK', 
         guide : 'OK', 
         resistance_to_voltage : '', 
         technical_certification : 'OK', 
         origin_germany : 'OK', 
-        magnet_base_switch : '', 
-        isolation : '', 
+        magnet_base_switch : 'OK', 
+        isolation : 'OK', 
         electronic_circuit_board : '', 
         machine_image : '', 
         brand_image : '', 
@@ -122,7 +122,6 @@ const AddCertificate = () => {
       }
 
       const validateCertData = (data) => {
-        console.log('DATA', data);
         const errors = {};
 
         if (!data.brand_id) {
@@ -162,6 +161,7 @@ const AddCertificate = () => {
 
       useEffect(() => {
         if(printData && Object.keys(printData).length > 0){
+            console.log('printData', printData)
             handlePrint(null, () => componentRef.current);
         }
       }, [printData])
