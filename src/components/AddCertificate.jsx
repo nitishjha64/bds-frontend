@@ -13,7 +13,7 @@ const AddCertificate = () => {
         brand_id : '', 
         machine_id : '', 
         checked_by : '', 
-        crowd : '', 
+        crowd : 1, 
         motor_switch : '', 
         insulation_resistance : '', 
         perpendicularity : '', 
@@ -42,6 +42,7 @@ const AddCertificate = () => {
     const [certData, setCertData] = useState(certDataObj)
     const [printData, setPrintData] = useState({});
     const componentRef = useRef()
+    const [errors, setErrors] = useState({})
 
     useEffect(() => {
         (async() => {
@@ -96,8 +97,10 @@ const AddCertificate = () => {
         selectedOptions
       ) => {
         setSelected(selectedOptions)
-        console.log('selected', selectedOptions)
-        setCertData({...certData, brand_id: selectedOptions.id, brand_email: selectedOptions.email, brand_website: selectedOptions.brand_website})
+        const newDataObj = {...certData, brand_id: selectedOptions.id, brand_email: selectedOptions.email, brand_website: selectedOptions.brand_website}
+        setCertData(newDataObj)
+        const newErrors = validateCertData(newDataObj)
+        setErrors(newErrors)
       };
 
       const onChangeMachineSelect2 = (
@@ -105,21 +108,55 @@ const AddCertificate = () => {
       ) => {
         setMachineSelected(selectedOptions)
         const selectedMachine = machineData.find((machine) => {return machine.id === selectedOptions.id})
-        setCertData({...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, resistance_to_voltage: selectedMachine.voltage_resistance, observation: selectedMachine.observation, electronic_circuit_board: selectedMachine.electronic_circuit_board, brand_image: selectedMachine.image, machine_type: selectedMachine.name})
+        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, resistance_to_voltage: selectedMachine.voltage_resistance, observation: selectedMachine.observation, electronic_circuit_board: selectedMachine.electronic_circuit_board, brand_image: selectedMachine.image, machine_type: selectedMachine.name}
+        setCertData(newDataObj)
+        const newErrors = validateCertData(newDataObj)
+        setErrors(newErrors)
       };
 
       const handleChange = (event) => {
         let dataObj = {...certData, [event.target.name] : event.target.value}
         setCertData(dataObj)
+        const newErrors = validateCertData(dataObj)
+        setErrors(newErrors)
+      }
+
+      const validateCertData = (data) => {
+        console.log('DATA', data);
+        const errors = {};
+
+        if (!data.brand_id) {
+            errors.brand = 'Please select Brand';
+        }
+
+        if (!data.machine_id) {
+            errors.machine = 'Please select Machine';
+        }
+
+        if (!data.checked_by || !data.checked_by.trim()) {
+            errors.checked_by = 'Please add checked by';
+        }
+
+        console.log("CROWD", parseInt(data.crowd)>0)
+
+        if (!data.crowd || !parseInt(data.crowd)>0) {
+            errors.crowd = 'Please select valid Count';
+        }
+
+        return errors;
       }
 
       const saveCertificate = async() => {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/certificate`, certData, {
-            headers: {
-                'Authorization': localStorage.getItem('token'),
-            }
-        })
-        setPrintData(response.data)
+        const newErrors = validateCertData(certData)
+        setErrors(newErrors)
+        if (Object.keys(newErrors).length === 0) {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/certificate`, certData, {
+                headers: {
+                    'Authorization': localStorage.getItem('token'),
+                }
+            })
+            setPrintData(response.data)
+        }
         
       }
 
@@ -163,7 +200,13 @@ const AddCertificate = () => {
                                                             value={selected}
                                                             defaultValue={selected}
                                                             onChange={onChangeSelect2}
+                                                            getOptionValue={option=>option.id}
                                                             name="brand"/>
+                                                            {errors.brand && 
+                                                                <span className="error-message">
+                                                                    {errors.brand}
+                                                                </span>
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
@@ -171,6 +214,11 @@ const AddCertificate = () => {
                                                     <div className="form-group">
                                                         <label className="form-label">GEPRüFT VON</label>
                                                         <input type="text" className="form-control" name="checked_by" onChange={handleChange} value={certData.checked_by} />
+                                                        {errors.checked_by && 
+                                                            <span className="error-message">
+                                                                {errors.checked_by}
+                                                            </span>
+                                                        }
                                                     </div>
                                                 </div>
                                                 <div className="col-sm-6">
@@ -187,7 +235,13 @@ const AddCertificate = () => {
                                                             value={machineSelected}
                                                             defaultValue={machineSelected}
                                                             onChange={onChangeMachineSelect2}
-                                                            name="brand"/>
+                                                            getOptionValue={option=>option.id}
+                                                            name="machine"/>
+                                                            {errors.machine && 
+                                                                <span className="error-message">
+                                                                    {errors.machine}
+                                                                </span>
+                                                            }
                                                         </div>
                                                     </div>
                                                 </div>
@@ -195,6 +249,11 @@ const AddCertificate = () => {
                                                     <div className="form-group">
                                                         <label className="form-label">MENGE</label>
                                                         <input type="number" className="form-control" name="crowd" onChange={handleChange} value={certData.crowd} />
+                                                        {errors.crowd && 
+                                                            <span className="error-message">
+                                                                {errors.crowd}
+                                                            </span>
+                                                        }
                                                     </div>
                                                 </div>
                                                 
@@ -206,7 +265,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Rechtwinkligkeit</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default" name="perpendicularity" onChange={handleChange} value="OK" defaultChecked={certData.perpendicularity === 'OK'} />
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default" name="perpendicularity" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>
@@ -217,7 +276,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Tolerance of Spindle</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default" name="tolerance_of_spindle" onChange={handleChange} value="OK" defaultChecked={certData.tolerance_of_spindle === 'OK'} />
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default" name="tolerance_of_spindle" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>
@@ -228,7 +287,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Magnet Base Switch</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="magnet_base_switch" onChange={handleChange} value="OK" defaultChecked={certData.magnet_base_switch === 'OK'} />
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="magnet_base_switch" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>
@@ -239,7 +298,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Motor Switch</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="motor_switch" onChange={handleChange} value="OK" defaultChecked={certData.motor_switch === 'OK'}  />
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="motor_switch" onChange={handleChange} value="OK" defaultChecked='OK'  />
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>
@@ -262,7 +321,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Isolation</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default"   name="isolation" onChange={handleChange} value="OK" defaultChecked={certData.isolation === 'OK'} />
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default"   name="isolation" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>
@@ -273,7 +332,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Insulation Resistance</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="insulation_resistance" onChange={handleChange} value="OK" defaultChecked={certData.insulation_resistance === 'OK'} />
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="insulation_resistance" onChange={handleChange} value="OK"defaultChecked='OK' />
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>
@@ -334,7 +393,7 @@ const AddCertificate = () => {
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Logistics Control</span>
                                                                     <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default" value=""  defaultChecked={false}/>
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default" value=""  defaultChecked={true}/>
                                                                 <span>OK</span>
                                                                 </div>
                                                             </div>

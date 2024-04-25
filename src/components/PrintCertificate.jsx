@@ -19,7 +19,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                 width: "80%",
                 height: "auto",
                 border: "1px solid #000",
-                margin: "20px auto"
+                margin: "auto auto auto auto"
                 }}
             >
                 <div className="doc-cnt1">
@@ -704,9 +704,9 @@ const PrintCertificate = forwardRef((props, ref) => {
                             }}
                             >
                             <div className="data" style={{ display: "grid" }}>
-                                <span style={{ fontWeight: "bolder" }}>
+                                {/* <span style={{ fontWeight: "bolder" }}>
                                 <b>QR Code</b>
-                                </span>
+                                </span> */}
                             </div>
                             </th>
                             <td
@@ -717,7 +717,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 padding: 10
                             }}
                             >
-                            <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${val.serialNo}`} style={{ width: 100, height: 100 }}/>
+                            <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${val.serialNo}`} style={{ width: 100, height: 100, visibility: 'hidden' }}/>
                             </td>
                         </tr>
                         </tbody>

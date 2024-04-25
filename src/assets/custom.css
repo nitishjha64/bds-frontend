@@ -1,15 +1,15 @@
 @font-face {
     font-family: 'News Gothic Std';
-    src: url('https://webappprogramming.website/bdscertificate/src/assets/fonts/NewsGothicStd-Bold.woff2') format('woff2'),
-        url('https://webappprogramming.website/bdscertificate/src/assets/fonts/NewsGothicStd-Bold.woff') format('woff');
+    src: url('/fonts/NewsGothic StdBold.woff2') format('woff2'),
+        url('/fonts/NewsGothicStdBold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'News Gothic Std';
-    src: url('https://webappprogramming.website/bdscertificate/src/assets/fonts/NewsGothicStd.woff2') format('woff2'),
-        url('https://webappprogramming.website/bdscertificate/src/assets/fonts/NewsGothicStd.woff') format('woff');
+    src: url('/fonts/NewsGothicStd.woff2') format('woff2'),
+        url('/fonts/NewsGothicStd.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -1385,6 +1385,10 @@ a.logout-btn:hover {
 
 .img-ctn {
     position: relative;
+}
+
+.error-message {
+    color: red
 }
     
     

@@ -21,8 +21,11 @@
 } 
 
 @media print { 
+    @page {
+        margin-top: 5mm ;
+    }
     html, body { height: initial !important; overflow: initial !important; }
-    body {margin-top: 20mm; margin-bottom: 20mm; 
+    body {margin-top: 0mm; margin-bottom: 0mm; 
         margin-left: 0mm; margin-right: 0mm}
     .page {
         margin: 0;
@@ -40,7 +43,3 @@
         height: 100%;
       }
 }
-/* @page {
-    margin-top: 5cm;
-    margin-bottom: 5cm;
- } */
