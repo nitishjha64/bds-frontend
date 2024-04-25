@@ -161,6 +161,7 @@ const AddCertificate = () => {
                                                             components={animatedComponents}
                                                             options={brandData} 
                                                             value={selected}
+                                                            defaultValue={selected}
                                                             onChange={onChangeSelect2}
                                                             name="brand"/>
                                                         </div>
@@ -184,6 +185,7 @@ const AddCertificate = () => {
                                                             components={animatedComponents}
                                                             options={machineSelectData} 
                                                             value={machineSelected}
+                                                            defaultValue={machineSelected}
                                                             onChange={onChangeMachineSelect2}
                                                             name="brand"/>
                                                         </div>
