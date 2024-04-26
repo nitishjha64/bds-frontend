@@ -19,7 +19,7 @@ const Homepage = () => {
                                     <div className="widget-content widget-content-area br-8 position-bt cstm_tab">
                                         <div className="simple-tab cms-tab">
                                             <Tabs className="nav nav-tabs" id="myTab" defaultActiveKey="test_report" as="ul">
-                                                <Tab eventKey="test_report" className="nav-item" title="Pr端fberichte erstellen">
+                                                <Tab eventKey="test_report" className="nav-item" title="Prüfbericht erstellen">
                                                     <AddCertificate />
                                                 </Tab>
                                                 <Tab eventKey="data" className="nav-item" title="Daten">

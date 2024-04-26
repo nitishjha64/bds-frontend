@@ -71,7 +71,7 @@ const AddCertificate = () => {
             setBrandData(brandArr)
         } else {
             // navigate('/login', {replace: true});
-            showToastMessage('error', 'Token expired please login', navigateToLogin)
+            showToastMessage('error', 'Token abgelaufen, bitte melden Sie sich an', navigateToLogin)
         }
         setLoading(false);
     }
@@ -96,7 +96,7 @@ const AddCertificate = () => {
             setMachineSelectData(machineArr)
             
         } else {
-            showToastMessage('error', 'Token expired please login', navigateToLogin)
+            showToastMessage('error', 'Token abgelaufen, bitte melden Sie sich an', navigateToLogin)
         }
         
         setLoading(false);
@@ -289,7 +289,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Tolerance of Spindle</span>
+                                                                <span>TOLERANZ DER SPINDEL</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name="tolerance_of_spindle" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
@@ -300,7 +300,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Magnet Base Switch</span>
+                                                                <span>Magnetfußschalter</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default"  name="magnet_base_switch" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
@@ -311,7 +311,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Motor Switch</span>
+                                                                <span>Motorschalter</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default"  name="motor_switch" onChange={handleChange} value="OK" defaultChecked='OK'  />
                                                                 <span>OK</span>
@@ -323,7 +323,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Guide</span>
+                                                                <span>Führung</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name="guide" value="OK" defaultChecked={true}  />
                                                                 <span>OK</span>
@@ -334,7 +334,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Isolation</span>
+                                                                <span>Isolierung</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default"   name="isolation" onChange={handleChange} value="OK" defaultChecked='OK' />
                                                                 <span>OK</span>
@@ -345,7 +345,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Insulation Resistance</span>
+                                                                <span>Isolationswiderstand</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default"  name="insulation_resistance" onChange={handleChange} value="OK"defaultChecked='OK' />
                                                                 <span>OK</span>
@@ -357,7 +357,7 @@ const AddCertificate = () => {
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                     <div className="d-flex">
-                                                                <span>Resistance to Voltage</span>
+                                                                <span>Spannungsfestigkeit</span>
                                                                 <input type="text" className="form-control" name="resistance_to_voltage" value={certData.resistance_to_voltage} />
                                                                 </div>
                                                             </div>
@@ -366,15 +366,15 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Electronic Circuit Board</span>
+                                                                <span>Elektronische Leiterplatte</span>
                                                                 <div className="d-flex">
                                                                     <div className="board1">
                                                                         <input className="form-check-input" type="checkbox" id="form-check-default" name="electronic_circuit_board" checked={certData.electronic_circuit_board === 1} />
-                                                                        <span>Yes</span>
+                                                                        <span>Ja</span>
                                                                     </div>
                                                                     <div className="board1">
                                                                         <input className="form-check-input" type="checkbox" id="form-check-default" name="electronic_circuit_board" checked={certData.electronic_circuit_board === 0} />
-                                                                        <span>No</span>
+                                                                        <span>Ja</span>
                                                                     </div>
                                                                 </div>
 
@@ -384,7 +384,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Accessories</span>
+                                                                <span>Zubehör</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name= "accessories" value="OK" defaultChecked={true} />
                                                                 <span>OK</span>
@@ -395,7 +395,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Technical Certification</span>
+                                                                <span>Technische Zertifizierung</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name="technical_certification" value="OK" defaultChecked={true} />
                                                                 <span>OK</span>
@@ -406,7 +406,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Logistics Control</span>
+                                                                <span>Logistiksteuerung</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" value=""  defaultChecked={true}/>
                                                                 <span>OK</span>
@@ -419,7 +419,7 @@ const AddCertificate = () => {
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 
-                                                                <span>Observation</span>
+                                                                <span>Überwachung</span>
                                                                 <div className="d-flex">
                                                                     <input type="text" className="form-control" name="observation" value={certData.observation} />
                                                                 </div>
@@ -429,7 +429,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Origin: Germany</span>
+                                                                <span>Herkunft: Deutschland</span>
                                                                 <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name="origin_germany" value="OK" defaultChecked={true} />
                                                                 <span>OK</span>
@@ -454,7 +454,7 @@ const AddCertificate = () => {
                                                             {!(machineData.length > 0 && machineSelected && Object.keys(machineSelected).length > 0) && (
                                                                 <>
                                                                     <img src="/static/blank-img.jpeg" />
-                                                                    <h3>Selected Machine</h3>
+                                                                    <h3>Ausgewählte Maschine</h3>
                                                                 </>
                                                             )}
                                                             
@@ -468,7 +468,7 @@ const AddCertificate = () => {
                                                             {!(selected && Object.keys(selected).length > 0 && selected.logo) && (
                                                                 <>
                                                                     <img src="/static/blank-img.jpeg" />
-                                                                    <h3>Selected Brand</h3>
+                                                                    <h3>Ausgewählte Marke</h3>
                                                                 </>
                                                             )}
                                                         </div>

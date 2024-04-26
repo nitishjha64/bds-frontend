@@ -14,42 +14,42 @@ const ListMachines = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const columns = [
         {
-            name: 'pos',
+            name: 'Sr. Nr.',
             selector: row => row.pos,
             sortable: true,
         },
         {
-            name: 'ITEM NUMBER',
+            name: 'ARTIKELNUMMER',
             selector: row => row.serial_no,
             sortable: true,
         },
         {
-            name: 'BRAND',
+            name: 'MARKE',
             selector: row => row.brand_name,
             sortable: true,
         },
         {
-            name: 'Resistance to Voltage',
+            name: 'Spannungsfestigkeit',
             selector: row => row.voltage_resistance,
             sortable: true,
         },
         {
-            name: 'Observation',
+            name: 'Überwachung',
             selector: row => row.observation,
             sortable: true,
         },
         {
-            name: 'Created Date',
+            name: 'Erstellungsdatum',
             selector: row => moment(row.created_at).format('M/D/YYYY'),
             sortable: true,
         },
         {
-            name: 'Action',
+            name: 'Aktion',
             button: true,
             cell: row => (
                 <a className="edit-btn" href={`machines/${row.id}`}>
                     <font style={{verticalAlign: "inherit"}}>
-                        <font style={{verticalAlign: "inherit"}}>EDIT</font>
+                        <font style={{verticalAlign: "inherit"}}>Bearbeiten</font>
                     </font>
                 </a>
             ),
@@ -106,7 +106,7 @@ if(!loading){
                     <div className="col-md-4">
                         <a className="border-btn add-btn mt-0" onClick={onClickAdd}>
                             <font style={{verticalAlign: 'inherit'}}>
-                                <font style={{verticalAlign: 'inherit'}}>+ ADD
+                                <font style={{verticalAlign: 'inherit'}}>+ hinzufügen
                                 </font>
                             </font>
                         </a>

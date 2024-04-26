@@ -28,13 +28,13 @@ function Login() {
     const errors = {};
 
     if (!data.username.trim()) {
-        errors.username = 'Email is required';
+        errors.username = 'E-Mail ist erforderlich';
     } else if (!/\S+@\S+\.\S+/.test(data.username)) {
         errors.username = 'Email is invalid';
     }
 
     if (!data.password) {
-        errors.password = 'Password is required';
+        errors.password = 'Passwort ist erforderlich';
     }
 
     return errors;
@@ -54,9 +54,9 @@ function Login() {
         console.error(error)
         if (axios.isAxiosError(error)) {
             // const response = error?.response
-            setErrors({username : 'Email is invalid', password: 'Password is invalid'});
+            setErrors({username : 'E-Mail ist ungültig', password: 'Passwort ist ungültig'});
         } else{
-            showToastMessage('error', "unable to login please try again")
+            showToastMessage('error', "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.")
         }
     }
   }
@@ -88,7 +88,7 @@ function Login() {
                                 <img src={`/static/bds-logo.png`} />
                             </div>
                             <div className="col-md-12 mb-3">
-                                <h2>ANMELDUNG</h2>
+                                <h2>einloggen</h2>
                             </div>
                             {/* <div className="col-md-12">
                                 <div className="mb-3">
@@ -97,7 +97,7 @@ function Login() {
                                 </div>
                             </div> */}
                             <Form.Group as={Col} md="12" className='mb-3' controlId="validationCustom01">
-                                <Form.Label>Email</Form.Label>
+                                <Form.Label>E-Mail</Form.Label>
                                 <Form.Control name="username" value={inputParams.username} type="email" required onChange={handleChange} />
                                 {errors.username && 
                                     <span className="error-message">
@@ -116,8 +116,7 @@ function Login() {
                             </Form.Group>
                             <div className="col-md-12">
                                 <div className="mb-4">
-                                    {/* <button onClick={handleLoginClick} className='download-btn w-100'>Login</button> */}
-                                    <button type="submit" disabled={btnLoader ? true : false} className='download-btn w-100'>Login</button>
+                                    <button type="submit" disabled={btnLoader ? true : false} className='download-btn w-100'>einloggen</button>
                                 </div>
                             </div>
                         </div>

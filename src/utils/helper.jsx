@@ -6,7 +6,6 @@ const autoClose = 1000
 
 export const showToastMessage = (type, message, _cb) => {
     try {
-        console.log('showtoastmessage', type, message)
         switch(type){
             case 'success':
             toast.success(message, { autoClose, onClose: () => _cb()});

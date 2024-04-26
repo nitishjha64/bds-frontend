@@ -41,7 +41,7 @@ const AddMachine = () => {
             });
             setBrandData(brandArr)
         } else {
-            showToastMessage('error', 'Token expired please login', navigateToLogin)
+            showToastMessage('error', 'Token abgelaufen, bitte melden Sie sich an', navigateToLogin)
         }
         setLoading(false);
     }
@@ -68,21 +68,21 @@ const AddMachine = () => {
                 }
             })
             if(responseData.status === 201){
-                showToastMessage('success', 'Machine added successfully!', navigateToHome)
+                showToastMessage('success', 'Maschine erfolgreich hinzugefügt!', navigateToHome)
                 // navigate('/')
             }
             if(responseData.status === 401){
-                showToastMessage('error', 'Token expired please login', navigateToLogin)
+                showToastMessage('error', 'Token abgelaufen, bitte melden Sie sich an', navigateToLogin)
                 // navigate('/')
             }
             else {
                 setBtnLoader(false)
-                showToastMessage('error', 'Machine could not be added please try again!')
+                showToastMessage('error', 'Die Maschine konnte nicht hinzugefügt werden. Bitte versuchen Sie es erneut!')
             }
         } catch (error) {
             setBtnLoader(false)
             console.error(error)
-            showToastMessage('error', 'Machine could not be added please try again!')
+            showToastMessage('error', 'Die Maschine konnte nicht hinzugefügt werden. Bitte versuchen Sie es erneut!')
         }
     }
 
@@ -133,7 +133,7 @@ const AddMachine = () => {
                                             <div className="col-md-8 float-right" onClick={onBackClick}>
                                                 <a className="extra-btn">
                                                     <img className="back-btn" src="/static/left-arrow.svg" />
-                                                    Back
+                                                    Zurück
                                                 </a>
                                             </div>
                                         </div>
@@ -208,13 +208,13 @@ const AddMachine = () => {
                                                         <div className="col-md-6">
                                                             <div className="machine_radio">
                                                                 <label className="form-label">ELEKTRONISCHE LEITERPLATTE</label>
-                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Yes" value={1} onChange={handleChange} checked={data.electronic_circuit_board === 1} />
-                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="No" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
+                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={1} onChange={handleChange} checked={data.electronic_circuit_board === 1} />
+                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
                                                             </div>
                                                         </div>
 
                                                     </div>
-                                                    <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>Save</button>
+                                                    <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>Speichern</button>
                                                 </div>
                                             </div>
                                         </div>

@@ -33,7 +33,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                         textTransform: "uppercase"
                         }}
                     >
-                        Pr�fbericht
+                        Prüfbericht
                     </h2>
                     <p style={{ color: "#606060", lineHeight: "normal", fontSize: 13 }}>
                         RAPPORTO DI CONTROLLO

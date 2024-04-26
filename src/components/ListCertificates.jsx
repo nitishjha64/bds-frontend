@@ -16,27 +16,27 @@ const ListCertificates = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const columns = [
         {
-            name: 'pos',
+            name: 'Sr. Nr.',
             selector: row => row.pos,
             sortable: true,
         },
         {
-            name: 'ITEM NUMBER',
+            name: 'ARTIKELNUMMER',
             selector: row => row.serial_no,
             sortable: true,
         },
         {
-            name: 'CHECKED BY',
+            name: 'GEPRÜFT VON',
             selector: row => row.checked_by,
             sortable: true,
         },
         {
-            name: 'CROWD',
+            name: 'MENGE',
             selector: row => row.crowd,
             sortable: true,
         },
         {
-            name: 'DATE',
+            name: 'DATUM',
             selector: row => moment(row.created_at).format('M/D/YYYY'),
             sortable: true,
         }
@@ -98,7 +98,7 @@ const ListCertificates = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-search">
                                         <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                     </svg>
-                                    <input type="search" className="form-control" placeholder="Search..." aria-controls="zero-config1" />
+                                    <input type="search" className="form-control" placeholder="Suchen..." aria-controls="zero-config1" />
                                 </label>
                                 {/* <button className="btns">
                                     <div className="col-md-4">
