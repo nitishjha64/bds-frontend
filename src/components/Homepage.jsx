@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react'
-
 import AddCertificate from './AddCertificate';
 import Header from "./Header"
 import ListCertificates from './ListCertificates';

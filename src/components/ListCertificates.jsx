@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import DataTable from 'react-data-table-component';
+import LoaderCustom from "./LoaderCustom";
 import axios from 'axios';
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
@@ -115,7 +116,13 @@ const ListCertificates = () => {
     } else {
         return (
             <>
-                Loading...
+                <div className="dt--top-section">
+                    <div className="row">
+                        <div className="col-12 offset-sm-6 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3">
+                            <LoaderCustom class="text-center" active={true} text="" />   
+                        </div>
+                    </div>
+                </div>
             </>
         )
     }

@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
-
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form'
+import { ToastContainer } from "react-toastify";
 import axios from "axios"
+import {showToastMessage} from '../utils/helper'
 import { useNavigate } from "react-router-dom";
+import { useState } from 'react'
 
 function Login() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function Login() {
         console.log("DATA,", data)
         if(data.status === 200){
             localStorage.setItem('token', data.data.token)
-            navigate('/');
+            showToastMessage('success', "Logged In successfully", navigateToHome)
         }
     } catch(error){
         console.error(error)
@@ -52,10 +53,14 @@ function Login() {
             // const response = error?.response
             setErrors({username : 'Email is invalid', password: 'Password is invalid'});
         } else{
-            alert("unable to login please try again")
+            showToastMessage('error', "unable to login please try again")
         }
     }
   }
+
+    const navigateToHome = () => {
+        navigate('/')
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -117,6 +122,7 @@ function Login() {
                 </Form>
             </div>
         </div>
+        <ToastContainer />
     </>
   )
 }

@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
+import LoaderCustom from "./LoaderCustom";
 import PrintCertificate from "./PrintCertificate";
+import PropagateLoader from 'react-spinners/PropagateLoader'
 import Select from 'react-select';
 import axios from 'axios';
 import makeAnimated from 'react-select/animated';
+import {showToastMessage} from '../utils/helper'
 import { useNavigate } from "react-router-dom";
 import { useReactToPrint } from "react-to-print";
 
@@ -34,7 +37,7 @@ const AddCertificate = () => {
     }
     const animatedComponents = makeAnimated();
     const [brandData, setBrandData] = useState([])
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [selected, setSelected] = useState();
     const [machineSelected, setMachineSelected] = useState();
     const [machineSelectData, setMachineSelectData] = useState([])
@@ -43,6 +46,7 @@ const AddCertificate = () => {
     const [printData, setPrintData] = useState({});
     const componentRef = useRef()
     const [errors, setErrors] = useState({})
+    const [btnLoader, setBtnLoader] = useState(false);
 
     useEffect(() => {
         (async() => {
@@ -66,9 +70,14 @@ const AddCertificate = () => {
             });
             setBrandData(brandArr)
         } else {
-            navigate('/login', {replace: true});
+            // navigate('/login', {replace: true});
+            showToastMessage('error', 'Token expired please login', navigateToLogin)
         }
         setLoading(false);
+    }
+
+    const navigateToLogin = () => {
+        navigate('/login', {replace: true});
     }
 
     const fetchMachines = async()  => {
@@ -87,7 +96,7 @@ const AddCertificate = () => {
             setMachineSelectData(machineArr)
             
         } else {
-            navigate('/login', {replace: true});
+            showToastMessage('error', 'Token expired please login', navigateToLogin)
         }
         
         setLoading(false);
@@ -149,6 +158,7 @@ const AddCertificate = () => {
         const newErrors = validateCertData(certData)
         setErrors(newErrors)
         if (Object.keys(newErrors).length === 0) {
+            setBtnLoader(true)
             const response = await axios.post(`${process.env.REACT_APP_API_URL}/certificate`, certData, {
                 headers: {
                     'Authorization': localStorage.getItem('token'),
@@ -170,7 +180,7 @@ const AddCertificate = () => {
         // documentTitle: "Print This Document",
         onBeforePrint: () => {
           console.log("before printing...");
-          setLoading(false);
+          setBtnLoader(false);
         },
         onAfterPrint: () => console.log("after printing..."),
         removeAfterPrint: true,
@@ -465,8 +475,8 @@ const AddCertificate = () => {
                                         <div style={{ display: "none" }}>
                                             <PrintCertificate data={printData} ref={componentRef} />
                                         </div>
-                                        <button id="wizard-next" type="button" className="btn btn-irv" onClick={saveCertificate}>
-                                            WEITER
+                                        <button id="wizard-next" type="button" className="btn btn-irv" disabled={btnLoader ? true : false} onClick={saveCertificate}>
+                                            {'WEITER'}
                                         </button>
                                         {/* <button id="wizard-subm" style={{display : "none"}} type="button" className="btn btn-irv print-button__content  js__action--print">
                                             DRUCKEN
@@ -481,11 +491,11 @@ const AddCertificate = () => {
       } else {
         return(
             <>
-                <div className="main-container" id="container">
-                    <div className="overlay"></div>
-                    <div className="search-overlay"></div>
-                    <div id="content" className="main-content">
-                        Data loading ...
+                <div className="tab-pane fade show active" id="tab1-tab-pane" role="tabpanel" aria-labelledby="tab1-tab" tabIndex="0" style={{height: '100vh'}}>
+                    <div className="row vertical-center">
+                        <div className="col-md-6 offset-md-3">
+                            <LoaderCustom class="text-center" active={true} text="" />   
+                        </div>
                     </div>
                 </div>
             </>

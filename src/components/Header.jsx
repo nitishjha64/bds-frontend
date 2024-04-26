@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import MyVerticallyCenteredModal from './Modal'
+import { ToastContainer } from "react-toastify";
 import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
@@ -33,6 +34,7 @@ const Header = () => {
                 </header>
             </div>
             <MyVerticallyCenteredModal show={modalShow} onHide={onModalHide} onSubmit={onLogoutConfirm}/>
+            <ToastContainer />
         </>
     )
 }

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 
 import Form from 'react-bootstrap/Form';
 import Header from "./Header";
+import LoaderCustom from "./LoaderCustom";
 import Select from 'react-select';
 import axios from 'axios';
 import makeAnimated from 'react-select/animated';
+import {showToastMessage} from '../utils/helper'
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -44,7 +46,7 @@ const EditMachine = () => {
             });
             setBrandData(brandArr)
         } else {
-            navigate('/login', {replace: true});
+            showToastMessage('error', 'Token expired please login', navigateToLogin)
         }
         setLoading(false);
     }
@@ -60,7 +62,7 @@ const EditMachine = () => {
             setData(response.data)
             setSelected(brandData.find((brand) => {return brand.id === response.data.brand_id}))
         } else {
-            navigate('/login', {replace: true});
+            showToastMessage('error', 'Token expired please login', navigateToLogin)
         }
         
         setLoading(false);
@@ -81,20 +83,32 @@ const EditMachine = () => {
     }
 
     const saveData = async(event) => {
-        event.preventDefault()
+        try{
+            event.preventDefault()
 
-        const responseData = await axios.put(`${process.env.REACT_APP_API_URL}/machine/${id}`, data, {
-            headers: {
-                'Authorization': localStorage.getItem('token'),
+            const responseData = await axios.put(`${process.env.REACT_APP_API_URL}/machine/${id}`, data, {
+                headers: {
+                    'Authorization': localStorage.getItem('token'),
+                }
+            })
+
+            if(responseData.status === 200){
+                showToastMessage('success', 'Machine added successfully!', navigateToHome)
+            } else {
+                showToastMessage('error', 'Machine could not be updated please try again!')
             }
-        })
+        }catch (error) {
+                console.error(error)
+                showToastMessage('error', 'Machine could not be updated please try again!!')
+            }
+    }
 
-        if(responseData.status === 200){
-            alert('Machine updated successfully!')
-            navigate('/')
-        } else {
-            alert('Machine could not be updated please try again!')
-        }
+    const navigateToHome = () => {
+        navigate('/')
+    }
+
+    const navigateToLogin = () => {
+        navigate('/login', {replace: true});
     }
 
     const handleChange = (event) => {
@@ -115,7 +129,7 @@ const EditMachine = () => {
 
     const onBackClick = (event) => {
         event.preventDefault()
-        navigate('/')
+        navigateToHome()
     }
 
     if(!loading){
@@ -197,7 +211,7 @@ const EditMachine = () => {
                                                                 <label className="form-label">PRODUKTFOTO</label>
                                                                 <div className="profile-image">
                                                                     <div className="img-uploader-content">
-                                                                        <input type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" value={""}/>
+                                                                        <Form.Control type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" />
                                                                     </div>
                                                                     {data.image && (
                                                                         <img src={`${process.env.REACT_APP_API_URL}/${data.image}`} width={200} height={200} style={{objectFit: 'contain'}}/>
@@ -231,10 +245,10 @@ const EditMachine = () => {
             <>
                 <Header />
                 <div className="main-container" id="container">
-                    <div className="overlay"></div>
-                    <div className="search-overlay"></div>
-                    <div id="content" className="main-content">
-                        Data loading ...
+                    <div className="row vertical-center">
+                        <div className="col-md-6 offset-md-3">
+                            <LoaderCustom class="text-center" active={true} text="" />   
+                        </div>
                     </div>
                 </div>
             </>

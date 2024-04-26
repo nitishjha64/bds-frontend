@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 
 import Form from 'react-bootstrap/Form';
 import Header from "./Header";
+import LoaderCustom from "./LoaderCustom";
 import Select from 'react-select';
 import axios from 'axios';
 import makeAnimated from 'react-select/animated';
+import {showToastMessage} from '../utils/helper'
 import { useNavigate } from "react-router-dom";
 
 const AddMachine = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0})
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [brandData, setBrandData] = useState([])
     const animatedComponents = makeAnimated();
     const [selected, setSelected] = useState();
@@ -21,6 +23,8 @@ const AddMachine = () => {
         })()
         return () => console.log("Cleanup..");
     }, [])
+
+    
 
     const fetchBrand = async () => {
         let brandArr = []
@@ -36,7 +40,7 @@ const AddMachine = () => {
             });
             setBrandData(brandArr)
         } else {
-            navigate('/login', {replace: true});
+            showToastMessage('error', 'Token expired please login', navigateToLogin)
         }
         setLoading(false);
     }
@@ -54,19 +58,37 @@ const AddMachine = () => {
     }
 
     const saveData = async(event) => {
-        event.preventDefault()
+        try {
+            event.preventDefault()
 
-        const responseData = await axios.post(`${process.env.REACT_APP_API_URL}/machine`, data, {
-            headers: {
-                'Authorization': localStorage.getItem('token'),
+            const responseData = await axios.post(`${process.env.REACT_APP_API_URL}/machine`, data, {
+                headers: {
+                    'Authorization': localStorage.getItem('token'),
+                }
+            })
+            if(responseData.status === 201){
+                showToastMessage('success', 'Machine added successfully!', navigateToHome)
+                // navigate('/')
             }
-        })
-        if(responseData.status === 201){
-            alert('Machine added successfully!')
-            navigate('/')
-        } else {
-            alert('Machine could not be added please try again!')
+            if(responseData.status === 401){
+                showToastMessage('error', 'Token expired please login', navigateToLogin)
+                // navigate('/')
+            }
+            else {
+                showToastMessage('error', 'Machine could not be added please try again!')
+            }
+        } catch (error) {
+            console.error(error)
+            showToastMessage('error', 'Machine could not be added please try again!')
         }
+    }
+
+    const navigateToHome = () => {
+        navigate('/')
+    }
+
+    const navigateToLogin = () => {
+        navigate('/login', {replace: true});
     }
 
     const handleChange = (event) => {
@@ -169,7 +191,8 @@ const AddMachine = () => {
                                                                 <label className="form-label">PRODUKTFOTO</label>
                                                                 <div className="profile-image">
                                                                     <div className="img-uploader-content">
-                                                                        <input type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" value={""}/>
+                                                                        {/* <input type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" value={form.file}/> */}
+                                                                        <Form.Control type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" />
                                                                     </div>
                                                                     {data.image && (
                                                                         <img src={`${process.env.REACT_APP_API_URL}/${data.image}`} width={200} height={200} style={{objectFit: 'contain'}}/>
@@ -205,10 +228,10 @@ const AddMachine = () => {
             <>
                 <Header />
                 <div className="main-container" id="container">
-                    <div className="overlay"></div>
-                    <div className="search-overlay"></div>
-                    <div id="content" className="main-content">
-                        Data loading ...
+                    <div className="row vertical-center">
+                        <div className="col-md-6 offset-md-3">
+                            <LoaderCustom class="text-center" active={true} text="" />   
+                        </div>
                     </div>
                 </div>
             </>
