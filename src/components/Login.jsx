@@ -46,7 +46,8 @@ function Login() {
         const data = await axios.post(process.env.REACT_APP_API_URL + '/login', inputParams)
         if(data.status === 200){
             localStorage.setItem('token', data.data.token)
-            showToastMessage('success', "Logged In successfully", navigateToHome)
+            // showToastMessage('success', "Logged In successfully", navigateToHome, 500)
+            navigateToHome()
         }
     } catch(error){
         setBtnLoader(false)

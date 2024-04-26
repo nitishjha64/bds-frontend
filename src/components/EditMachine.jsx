@@ -94,7 +94,7 @@ const EditMachine = () => {
             })
 
             if(responseData.status === 200){
-                showToastMessage('success', 'Machine added successfully!', navigateToHome)
+                showToastMessage('success', 'Machine updated successfully!', navigateToHome)
             } else {
                 setBtnLoader(false)
                 showToastMessage('error', 'Machine could not be updated please try again!')

@@ -2,7 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { toast } from "react-toastify";
 
-const autoClose = 2000
+const autoClose = 1000
 
 export const showToastMessage = (type, message, _cb) => {
     try {
