@@ -155,16 +155,21 @@ const AddCertificate = () => {
       }
 
       const saveCertificate = async() => {
-        const newErrors = validateCertData(certData)
-        setErrors(newErrors)
-        if (Object.keys(newErrors).length === 0) {
-            setBtnLoader(true)
-            const response = await axios.post(`${process.env.REACT_APP_API_URL}/certificate`, certData, {
-                headers: {
-                    'Authorization': localStorage.getItem('token'),
-                }
-            })
-            setPrintData(response.data)
+        try{
+            const newErrors = validateCertData(certData)
+            setErrors(newErrors)
+            if (Object.keys(newErrors).length === 0) {
+                setBtnLoader(true)
+                const response = await axios.post(`${process.env.REACT_APP_API_URL}/certificate`, certData, {
+                    headers: {
+                        'Authorization': localStorage.getItem('token'),
+                    }
+                })
+                setPrintData(response.data)
+            }
+        } catch(error){
+            setBtnLoader(false)
+            console.log(error)
         }
         
       }

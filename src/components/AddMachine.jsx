@@ -16,6 +16,7 @@ const AddMachine = () => {
     const [brandData, setBrandData] = useState([])
     const animatedComponents = makeAnimated();
     const [selected, setSelected] = useState();
+    const [btnLoader, setBtnLoader] = useState(false);
 
     useEffect(() => {
         (async() => {
@@ -60,7 +61,7 @@ const AddMachine = () => {
     const saveData = async(event) => {
         try {
             event.preventDefault()
-
+            setBtnLoader(true)
             const responseData = await axios.post(`${process.env.REACT_APP_API_URL}/machine`, data, {
                 headers: {
                     'Authorization': localStorage.getItem('token'),
@@ -75,9 +76,11 @@ const AddMachine = () => {
                 // navigate('/')
             }
             else {
+                setBtnLoader(false)
                 showToastMessage('error', 'Machine could not be added please try again!')
             }
         } catch (error) {
+            setBtnLoader(false)
             console.error(error)
             showToastMessage('error', 'Machine could not be added please try again!')
         }
@@ -211,7 +214,7 @@ const AddMachine = () => {
                                                         </div>
 
                                                     </div>
-                                                    <a href="#" onClick={saveData} className="submit-btn">Save</a>
+                                                    <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>Save</button>
                                                 </div>
                                             </div>
                                         </div>

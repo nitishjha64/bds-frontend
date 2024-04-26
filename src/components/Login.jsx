@@ -10,6 +10,7 @@ function Login() {
   const navigate = useNavigate();
   const [errors, setErrors] = useState({username: '', password: ''});
   const [inputParams, setInputparams] = useState({username: '', password: ''})
+  const [btnLoader, setBtnLoader] = useState(false)
 
 
   const handleChange = (e) =>{
@@ -41,13 +42,14 @@ function Login() {
 
   const handleLoginClick = async() => {
     try{
+        setBtnLoader(true)
         const data = await axios.post(process.env.REACT_APP_API_URL + '/login', inputParams)
-        console.log("DATA,", data)
         if(data.status === 200){
             localStorage.setItem('token', data.data.token)
             showToastMessage('success', "Logged In successfully", navigateToHome)
         }
     } catch(error){
+        setBtnLoader(false)
         console.error(error)
         if (axios.isAxiosError(error)) {
             // const response = error?.response
@@ -114,7 +116,7 @@ function Login() {
                             <div className="col-md-12">
                                 <div className="mb-4">
                                     {/* <button onClick={handleLoginClick} className='download-btn w-100'>Login</button> */}
-                                    <button type="submit" className='download-btn w-100'>Login</button>
+                                    <button type="submit" disabled={btnLoader ? true : false} className='download-btn w-100'>Login</button>
                                 </div>
                             </div>
                         </div>

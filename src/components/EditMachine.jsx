@@ -18,6 +18,7 @@ const EditMachine = () => {
     const [brandData, setBrandData] = useState([])
     const animatedComponents = makeAnimated();
     const [selected, setSelected] = useState();
+    const [btnLoader, setBtnLoader] = useState(false);
 
     useEffect(() => {
         (async() => {
@@ -85,7 +86,7 @@ const EditMachine = () => {
     const saveData = async(event) => {
         try{
             event.preventDefault()
-
+            setBtnLoader(true)
             const responseData = await axios.put(`${process.env.REACT_APP_API_URL}/machine/${id}`, data, {
                 headers: {
                     'Authorization': localStorage.getItem('token'),
@@ -95,12 +96,14 @@ const EditMachine = () => {
             if(responseData.status === 200){
                 showToastMessage('success', 'Machine added successfully!', navigateToHome)
             } else {
+                setBtnLoader(false)
                 showToastMessage('error', 'Machine could not be updated please try again!')
             }
         }catch (error) {
-                console.error(error)
-                showToastMessage('error', 'Machine could not be updated please try again!!')
-            }
+            setBtnLoader(false)
+            console.error(error)
+            showToastMessage('error', 'Machine could not be updated please try again!!')
+        }
     }
 
     const navigateToHome = () => {
@@ -228,7 +231,7 @@ const EditMachine = () => {
                                                         </div>
 
                                                     </div>
-                                                    <a href="#" onClick={saveData} className="submit-btn">Save</a>
+                                                    <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>Save</button>
                                                 </div>
                                             </div>
                                         </div>

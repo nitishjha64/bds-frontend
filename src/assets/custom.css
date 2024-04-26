@@ -1012,7 +1012,7 @@ div#zero-config_filter {
     align-items: center;
     justify-content: center;
     margin-right: 0;
-    width: 10%;
+    width: 10% !important;
     margin-left: auto;
     font-size: 17px;
     padding: 10px 25px;
