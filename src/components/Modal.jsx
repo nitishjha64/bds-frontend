@@ -21,7 +21,7 @@ const MyVerticallyCenteredModal = (props) => {
     >   
         <Modal.Body>
             <h2>AUSLOGGEN</h2>
-            <h3>Zum Abmelden best辰tigen?</h3>
+            <h3>Abmelden bestätigen?</h3>
             <div className="modal-btns">
                 <a onClick={onCancel} data-dismiss="modal" className="cancel-btn">NEIN</a>
                 <a onClick={onSubmit} className="logout-btn">JA</a>
