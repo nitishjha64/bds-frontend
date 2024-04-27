@@ -8,9 +8,9 @@ const LandingCertificate = () => {
     const [certData, setCertData] = useState()
     const [loading, setLoading] = useState(true)
 
-    const fetchData = async(certId) => {
+    const fetchData = async(serialNo) => {
         setLoading(true)
-        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/certificate/${certId}`,{
+        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/certificate/${serialNo}`,{
             headers: {
                 'Authorization': localStorage.getItem('token'),
             }

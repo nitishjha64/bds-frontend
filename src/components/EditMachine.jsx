@@ -194,6 +194,7 @@ const EditMachine = () => {
                                                                 options={brandData} 
                                                                 value={selected}
                                                                 onChange={onChangeSelect2}
+                                                                defaultValue={selected}
                                                                 name="brand"/>
                                                             </div>
                                                         </div>

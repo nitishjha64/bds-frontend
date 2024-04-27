@@ -173,6 +173,7 @@ const AddMachine = () => {
                                                                 components={animatedComponents}
                                                                 options={brandData} 
                                                                 value={selected}
+                                                                getOptionValue={option=>option.id}
                                                                 onChange={onChangeSelect2}
                                                                 name="brand"/>
                                                             </div>
@@ -209,7 +210,7 @@ const AddMachine = () => {
                                                             <div className="machine_radio">
                                                                 <label className="form-label">ELEKTRONISCHE LEITERPLATTE</label>
                                                                 <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={1} onChange={handleChange} checked={data.electronic_circuit_board === 1} />
-                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
+                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="NEIN" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
                                                             </div>
                                                         </div>
 
