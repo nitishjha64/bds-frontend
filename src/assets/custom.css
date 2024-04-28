@@ -1399,6 +1399,92 @@ a.logout-btn:hover {
     transform: translateY(-50%);
     width: 100%
 }
+
+/*css-added dipti*/
+.react-select__control {
+    color: #3b3f5c;
+    font-size: 15px;
+    padding: 8px 10px !important;
+    letter-spacing: 1px;
+    background: transparent !important;
+    height: 50px;
+    transition: none;
+    color: #fff !important;
+    border-color: #7f7d7d !important;
+}
+.css-b62m3t-container:focus-visible {
+    outline: none !Important;
+}
+.react-select__input-container.css-19bb58m {
+    color: #fff !important;
+}
+
+.react-select__single-value.css-1dimb5e-singleValue {
+    color: #fff;
+}
+.sc-beySPh.losPks.rdt_Table {
+    background: transparent !important;
+}
+
+.sc-fLseNd.igTRoD {
+    background: transparent;
+}
+
+.sc-dmXWDj.hlbvEC {
+    background: transparent;
+}
+
+.sc-dmyCSP.fwQJth.rdt_TableHeadRow {
+    text-transform: initial;
+    border-top: none;
+    background: rgba(234, 241, 255, 0.74);
+    border-right: none;
+    border-left: none;
+    padding: 10px 21px 10px 21px;
+    color: #000;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.itluUR {
+    background: transparent;
+    border-bottom: 1px solid #fff !important;
+    color: #fff;
+    text-align: center !IMPORTANT;
+}
+
+nav.sc-iKOmoZ.bUaNdX.rdt_Pagination {
+    background: transparent;
+    color: #fff;
+}
+
+button#pagination-first-page {
+    color: #fff;
+    fill: #fff;
+}
+
+button#pagination-previous-page {
+    fill: #fff;
+    color: #fff;
+}
+
+button#pagination-next-page {
+    fill: #fff;
+    color: #fff;
+}
+
+button#pagination-last-page {
+    fill: #fff;
+    color: #fff;
+}
+.itluUR {
+    background: transparent ! IMPORTANT;
+    color: #fff !important;
+}
     
     
     

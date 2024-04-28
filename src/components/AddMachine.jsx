@@ -196,7 +196,7 @@ const AddMachine = () => {
                                                                 <div className="profile-image">
                                                                     <div className="img-uploader-content">
                                                                         {/* <input type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" value={form.file}/> */}
-                                                                        <Form.Control type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" />
+                                                                        <Form.Control type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" className="form-control" />
                                                                     </div>
                                                                     {data.image && (
                                                                         <img src={`${process.env.REACT_APP_API_URL}/${data.image}`} width={200} height={200} style={{objectFit: 'contain'}}/>
