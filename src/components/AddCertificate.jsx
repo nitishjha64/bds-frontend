@@ -374,7 +374,7 @@ const AddCertificate = () => {
                                                                     </div>
                                                                     <div className="board1">
                                                                         <input className="form-check-input" type="checkbox" id="form-check-default" name="electronic_circuit_board" checked={certData.electronic_circuit_board === 0} />
-                                                                        <span>Ja</span>
+                                                                        <span>NEIN</span>
                                                                     </div>
                                                                 </div>
 
