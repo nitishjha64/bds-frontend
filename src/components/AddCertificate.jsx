@@ -356,9 +356,9 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                    <div className="d-flex checkbox-input">
-                                                                <span>Spannungsfestigkeit</span>
-                                                                <input type="text" className="form-control" name="resistance_to_voltage" value={certData.resistance_to_voltage} />
+                                                                <div className="d-flex checkbox-input">
+                                                                    <span>Spannungsfestigkeit</span>
+                                                                    <input type="text" className="form-control" name="resistance_to_voltage" value={certData.resistance_to_voltage} />
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -418,9 +418,8 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                
-                                                                <span>Überwachung</span>
                                                                 <div className="d-flex checkbox-input">
+                                                                    <span>Überwachung</span>
                                                                     <input type="text" className="form-control" name="observation" value={certData.observation} />
                                                                 </div>
                                                             </div>

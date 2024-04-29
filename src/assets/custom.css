@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'News Gothic Std';
-    src: url('/fonts/NewsGothic StdBold.woff2') format('woff2'),
-        url('/fonts/NewsGothicStdBold.woff') format('woff');
+    src: url('/fonts/NewsGothicStd.woff2') format('woff2'),
+        url('/fonts/NewsGothicStd.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -1499,6 +1499,24 @@ button#pagination-last-page {
     margin: 0 10px;
     text-align: end;
 }
+
+input.form-control {
+    width: 100px !important;
+    padding: 10px !important;
+    height: 50px !important;
+}
+.board1:first-child .form-check-input {
+    left: auto;
+    right: 26px;
+    top: 2px;
+}
+
+.board1:last-child .form-check-input {
+    left: auto;
+    right: 47px;
+    top: 2px;
+}
+
     
     
     
