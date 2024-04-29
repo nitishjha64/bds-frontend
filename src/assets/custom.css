@@ -1255,10 +1255,7 @@ button#wizard-next, button#wizard-subm {
     width: 20px !important;
     height: 20px !important;
 }
-.board1 {
-    width: 50%;
-    display: flex;
-}
+
 
 .check-form  .d-flex {
     width: fit-content;
@@ -1488,19 +1485,20 @@ button#pagination-last-page {
 .checkbox-input{
     width: 100% !important;
 }
-.board1 .form-check-input {
-    position: relative;
-    left: 25px;
-}
 .board1 {
-    width: 55px;
+    width: 75px;
     display: flex;
     justify-content: center;
-    margin: 0 10px;
+    margin-left: 10px;
     text-align: end;
+    position: relative;
+}
+.board1 .form-check-input {
+    position: absolute;
+    left: 25px;
 }
 
-input.form-control {
+.checkbox-input input.form-control {
     width: 100px !important;
     padding: 10px !important;
     height: 50px !important;
@@ -1517,15 +1515,7 @@ input.form-control {
     top: 2px;
 }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+.initial .col-sm-12 {
+    padding: 0;
+}
