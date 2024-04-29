@@ -1361,7 +1361,6 @@ a.logout-btn:hover {
     }
     .wizard-body .col-md-4 {
     margin: 0 auto;
-    max-width: 30% !important;
 }
    .check-form input.form-control {
     width: 80%;
