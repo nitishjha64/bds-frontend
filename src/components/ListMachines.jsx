@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import DataTable from 'react-data-table-component';
+import LoaderCustom from "./LoaderCustom";
 import axios from 'axios';
 import moment from "moment";
 import { useNavigate } from "react-router-dom";
@@ -117,9 +118,15 @@ if(!loading){
         </>
     )
 } else {
-    return (
+    return(
         <>
-            Loading...
+            <div className="tab-pane fade show active" id="tab1-tab-pane" role="tabpanel" aria-labelledby="tab1-tab" tabIndex="0" style={{height: '100vh'}}>
+                <div className="row vertical-center">
+                    <div className="col-md-6 offset-md-3">
+                        <LoaderCustom class="text-center" active={true} text="" />   
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

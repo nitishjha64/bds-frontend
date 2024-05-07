@@ -116,9 +116,9 @@ const ListCertificates = () => {
     } else {
         return (
             <>
-                <div className="dt--top-section">
-                    <div className="row">
-                        <div className="col-12 offset-sm-6 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3">
+                <div className="tab-pane fade show active" id="tab1-tab-pane" role="tabpanel" aria-labelledby="tab1-tab" tabIndex="0" style={{height: '100vh'}}>
+                    <div className="row vertical-center">
+                        <div className="col-md-6 offset-md-3">
                             <LoaderCustom class="text-center" active={true} text="" />   
                         </div>
                     </div>
