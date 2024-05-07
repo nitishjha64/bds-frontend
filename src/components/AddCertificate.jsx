@@ -60,17 +60,23 @@ const AddCertificate = () => {
         let brandArr = []
         setLoading(true)
         if(localStorage.getItem('token')){
-            const response = await axios.get(`${process.env.REACT_APP_API_URL}/brands`,{
-                headers: {
-                    'Authorization': localStorage.getItem('token'),
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/brands`,{
+                    headers: {
+                        'Authorization': localStorage.getItem('token'),
+                    }
+                });
+                response.data.data.forEach(element => {
+                    brandArr.push({label: element.name, id: element.id, logo: element.logo, email: element.email, brand_website: element.website_link})
+                });
+                setBrandData(brandArr)
+            } catch (error) {
+                if(error.response.status === 403 || error.response.status === 401){
+                    window.localStorage.removeItem('token')
+                    navigate('/login', {replace: true})
                 }
-            });
-            response.data.data.forEach(element => {
-                brandArr.push({label: element.name, id: element.id, logo: element.logo, email: element.email, brand_website: element.website_link})
-            });
-            setBrandData(brandArr)
+            }
         } else {
-            // navigate('/login', {replace: true});
             showToastMessage('error', 'Token abgelaufen, bitte melden Sie sich an', navigateToLogin)
         }
         setLoading(false);
@@ -106,7 +112,7 @@ const AddCertificate = () => {
         selectedOptions
       ) => {
         setSelected(selectedOptions)
-        const newDataObj = {...certData, brand_id: selectedOptions.id, brand_email: selectedOptions.email, brand_website: selectedOptions.brand_website}
+        const newDataObj = {...certData, brand_id: selectedOptions.id, brand_email: selectedOptions.email, brand_website: selectedOptions.brand_website, brand_image: selectedOptions.logo}
         setCertData(newDataObj)
         const newErrors = validateCertData(newDataObj)
         setErrors(newErrors)
@@ -117,7 +123,7 @@ const AddCertificate = () => {
       ) => {
         setMachineSelected(selectedOptions)
         const selectedMachine = machineData.find((machine) => {return machine.id === selectedOptions.id})
-        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, resistance_to_voltage: selectedMachine.voltage_resistance, observation: selectedMachine.observation, electronic_circuit_board: selectedMachine.electronic_circuit_board, brand_image: selectedMachine.image, machine_type: selectedMachine.name}
+        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, resistance_to_voltage: selectedMachine.voltage_resistance, observation: selectedMachine.observation, electronic_circuit_board: selectedMachine.electronic_circuit_board, machine_type: selectedMachine.name}
         setCertData(newDataObj)
         const newErrors = validateCertData(newDataObj)
         setErrors(newErrors)
