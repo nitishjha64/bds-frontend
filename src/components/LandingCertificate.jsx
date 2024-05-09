@@ -8,20 +8,25 @@ const LandingCertificate = () => {
     const [certData, setCertData] = useState()
     const [loading, setLoading] = useState(true)
 
-    const fetchData = async(serialNo) => {
-        setLoading(true)
-        const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/certificate/${serialNo}`,{
-            headers: {
-                'Authorization': localStorage.getItem('token'),
-            }
-        })
-        console.log("DDDD", data.data[0])
-        setCertData(data.data[0])
-        setLoading(false)
-    }
 
     useEffect(() => {
-        fetchData(id)
+        if(id){
+            (async () => {
+                const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/certificate/${id}`,{
+                    headers: {
+                        'Authorization': localStorage.getItem('token'),
+                    }
+                })
+                console.log("DDDD", data.data[0])
+                setCertData(data.data[0])
+                setLoading(false)
+            })();
+        }
+
+        return () => {
+            // this now gets called when the component unmounts
+          };
+          
     }, [id])
 
     if(!loading){
