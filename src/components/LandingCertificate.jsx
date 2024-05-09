@@ -22,7 +22,7 @@ const LandingCertificate = () => {
 
     useEffect(() => {
         fetchData(id)
-    }, [])
+    }, [id])
 
     if(!loading){
         return (
