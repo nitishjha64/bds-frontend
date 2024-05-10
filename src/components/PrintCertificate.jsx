@@ -375,15 +375,16 @@ const PrintCertificate = forwardRef((props, ref) => {
                         </tbody>
                     </table>
                     <a
-                        href={`mailto:${val?.brand_email?.toLowercase()}`}
+                        href={`mailto:${val?.brand_email}`}
                         style={{
                         margin: "5px 0 !important",
                         color: "#000",
                         float: "inline-start",
-                        fontSize: "mailto:14px"
+                        fontSize: "mailto:14px",
+                        textTransform: "lowercase"
                         }}
                     >
-                        {val?.brand_email?.toLowercase()}
+                        {val?.brand_email}
                     </a>
                     </div>
                     <div className="col-md-6 right2">
@@ -727,10 +728,11 @@ const PrintCertificate = forwardRef((props, ref) => {
                         color: "#000",
                         textAlign: "right",
                         float: "right",
-                        fontSize: 14
+                        fontSize: 14,
+                        textTransform: "lowercase"
                         }}
                     >
-                        {val?.brand_website.toLowercase()}
+                        {val?.brand_website}
                     </a>
                     </div>
                 </div>
