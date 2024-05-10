@@ -33,15 +33,13 @@ const PrintCertificate = forwardRef((props, ref) => {
                         textTransform: "uppercase"
                         }}
                     >
-                        Prüfbericht
+                        PRÜFBERICHT
                     </h2>
                     <p style={{ color: "#606060", lineHeight: "normal", fontSize: 13 }}>
-                        RAPPORTO DI CONTROLLO
-                        <br />
-                        HOJA TECHNICA
-                        <br />
-                        BULLETIN DE CONTROLE
-                        <br /> FICHA TECNICA DE CONTROLE DE QUALIDADE
+                        QUALITY TEST CERTIFICATE | BULLETIN DE CONTRÔLLE | परीक्षण प्रमाणपत्र
+                    </p>
+                    <p style={{ color: "#606060", lineHeight: "normal", fontSize: 13 }}>
+                    RAPPORTO DI CONTROLLO | FICHA TÉCNICA DE CONTROLLE DE QUALIDADE
                     </p>
                     </div>
                     <div className="col-md-6 right">
@@ -377,7 +375,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                         </tbody>
                     </table>
                     <a
-                        href={`mailto:${val.brand_email}`}
+                        href={`mailto:${val?.brand_email?.toLowercase()}`}
                         style={{
                         margin: "5px 0 !important",
                         color: "#000",
@@ -385,7 +383,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                         fontSize: "mailto:14px"
                         }}
                     >
-                        {val.brand_email}
+                        {val?.brand_email?.toLowercase()}
                     </a>
                     </div>
                     <div className="col-md-6 right2">
@@ -732,7 +730,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                         fontSize: 14
                         }}
                     >
-                        {val.brand_website}
+                        {val?.brand_website.toLowercase()}
                     </a>
                     </div>
                 </div>
