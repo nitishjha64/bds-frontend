@@ -19,7 +19,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                 width: "80%",
                 height: "auto",
                 border: "1px solid #000",
-                margin: "auto auto auto auto"
+                margin: "20px auto 20px auto"
                 }}
             >
                     <div className="doc-cnt1">
