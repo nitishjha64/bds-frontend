@@ -15,7 +15,7 @@ const ListMachines = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const columns = [
         {
-            name: 'Sr. Nr.',
+            name: 'Pos.',
             selector: row => row.pos,
             sortable: true,
         },
@@ -30,22 +30,22 @@ const ListMachines = () => {
             sortable: true,
         },
         {
-            name: 'Spannungsfestigkeit',
+            name: 'SPANNUNGSFESTIGKEIT',
             selector: row => row.voltage_resistance,
             sortable: true,
         },
         {
-            name: 'Überwachung',
+            name: 'ÜBERWACHUNG',
             selector: row => row.observation,
             sortable: true,
         },
         {
-            name: 'Erstellungsdatum',
+            name: 'ERSTELLUNGSDATUM',
             selector: row => moment(row.created_at).format('M/D/YYYY'),
             sortable: true,
         },
         {
-            name: 'Aktion',
+            name: 'AKTION',
             button: true,
             cell: row => (
                 <a className="edit-btn" href={`machines/${row.id}`}>
@@ -107,8 +107,7 @@ if(!loading){
                     <div className="col-md-4">
                         <a className="border-btn add-btn mt-0" onClick={onClickAdd}>
                             <font style={{verticalAlign: 'inherit'}}>
-                                <font style={{verticalAlign: 'inherit'}}>+ hinzufügen
-                                </font>
+                                <font style={{verticalAlign: 'inherit', textTransform: 'uppercase'}}>+ hinzufügen</font>
                             </font>
                         </a>
                     </div>

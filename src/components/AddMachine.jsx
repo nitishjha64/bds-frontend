@@ -95,7 +95,7 @@ const AddMachine = () => {
     }
 
     const handleChange = (event) => {
-        let value = event.target.value
+        let value = event.target.value.replace(/\s/g, '')
         if(event.target.name === 'electronic_circuit_board')
         {
             value = parseInt(value)
@@ -175,18 +175,19 @@ const AddMachine = () => {
                                                                 value={selected}
                                                                 getOptionValue={option=>option.id}
                                                                 onChange={onChangeSelect2}
+                                                                placeholder={<div className="select-placeholder-text">wählen...</div>} 
                                                                 name="brand"/>
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div className="mb-4">
-                                                                <label className="form-label">ENGLISCHER WEBSITE-LINK</label>
+                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
                                                                 <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div className="mb-4">
-                                                                <label className="form-label">DEUTSCHER WEBSITE-LINK</label>
+                                                                <label className="form-label">DEUTSCHER PRODUKTSEITE</label>
                                                                 <input type="url" className="form-control" value={data.link_ger} name="link_ger" onChange={handleChange}/>
                                                             </div>
                                                         </div>
@@ -208,14 +209,14 @@ const AddMachine = () => {
 
                                                         <div className="col-md-6">
                                                             <div className="machine_radio">
-                                                                <label className="form-label">ELEKTRONISCHE LEITERPLATTE</label>
+                                                                <label className="form-label">ELEKTRISCHE REGELUNG</label>
                                                                 <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={1} onChange={handleChange} checked={data.electronic_circuit_board === 1} />
                                                                 <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="NEIN" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
                                                             </div>
                                                         </div>
 
                                                     </div>
-                                                    <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>Speichern</button>
+                                                    <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>SPEICHERN</button>
                                                 </div>
                                             </div>
                                         </div>
