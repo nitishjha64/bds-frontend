@@ -58,7 +58,7 @@
         .doc-cnt2 th,td {font-size: 11.5px;padding: 5px ! IMPORTANT;}
         .doc-cnt2 td{width: 50% !important;}
         @media print {
-            @page {margin: 0 !important;}
+            @page {margin: 20px !important;}
             body {padding: 75px;}
         }
         @media print {
