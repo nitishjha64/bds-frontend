@@ -70,8 +70,7 @@ const AddMachine = () => {
             if(responseData.status === 201){
                 showToastMessage('success', 'Maschine erfolgreich hinzugefügt!', navigateToHome)
                 // navigate('/')
-            }
-            if(responseData.status === 401){
+            } else if(responseData.status === 401){
                 showToastMessage('error', 'Token abgelaufen, bitte melden Sie sich an', navigateToLogin)
                 // navigate('/')
             }
@@ -144,24 +143,7 @@ const AddMachine = () => {
                                                 <div className="simple-tab">
                                                     <h3 className="inner-title">MASCHINE HINZUFÜGEN</h3>
                                                     <div className="row">
-                                                        <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">MASCHINENTYP</label>
-                                                                <input type="text" className="form-control" value={data.name} name="name" onChange={handleChange} />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">VOLT</label>
-                                                                <input type="text" className="form-control" value={data.voltage_resistance}  name="voltage_resistance" onChange={handleChange} />
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">Beobachtungen</label>
-                                                                <input type="text" className="form-control" value={data.observation} name="observation" onChange={handleChange}/>
-                                                            </div>
-                                                        </div>
+
                                                         <div className="col-md-6">
                                                             <div className="mb-4">
                                                                 <label className="form-label">MARKE</label>
@@ -179,18 +161,36 @@ const AddMachine = () => {
                                                                 name="brand"/>
                                                             </div>
                                                         </div>
+
                                                         <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
-                                                                <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
+                                                            <div className="machine_radio">
+                                                                <label className="form-label">ELEKTRISCHE REGELUNG</label>
+                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={1} onChange={handleChange} checked={data.electronic_circuit_board === 1} />
+                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="NEIN" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
                                                             </div>
                                                         </div>
+
+                                                        <div className="col-md-6">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">MASCHINENTYP</label>
+                                                                <input type="text" className="form-control" value={data.name} name="name" onChange={handleChange} />
+                                                            </div>
+                                                        </div>
+
                                                         <div className="col-md-6">
                                                             <div className="mb-4">
                                                                 <label className="form-label">DEUTSCHER PRODUKTSEITE</label>
                                                                 <input type="url" className="form-control" value={data.link_ger} name="link_ger" onChange={handleChange}/>
                                                             </div>
                                                         </div>
+
+                                                        <div className="col-md-6">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
+                                                                <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
+                                                            </div>
+                                                        </div>
+
                                                         <div className="col-md-6">
                                                             <div className="">
                                                                 <label className="form-label">PRODUKTFOTO</label>
@@ -205,16 +205,7 @@ const AddMachine = () => {
                                                                     
                                                                 </div>
                                                             </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
-                                                            <div className="machine_radio">
-                                                                <label className="form-label">ELEKTRISCHE REGELUNG</label>
-                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="Ja" value={1} onChange={handleChange} checked={data.electronic_circuit_board === 1} />
-                                                                <Form.Check type="radio" name="electronic_circuit_board" id={`electronic_circuit_board`} label="NEIN" value={0} onChange={handleChange} checked={data.electronic_circuit_board === 0} />
-                                                            </div>
-                                                        </div>
-
+                                                        </div>                                                        
                                                     </div>
                                                     <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>SPEICHERN</button>
                                                 </div>

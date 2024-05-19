@@ -406,7 +406,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              Germany
+                              {val.origin_germany}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>

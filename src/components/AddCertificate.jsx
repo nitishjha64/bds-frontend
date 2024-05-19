@@ -24,9 +24,9 @@ const AddCertificate = () => {
         observation : '', 
         tolerance_of_spindle : 'OK', 
         guide : 'OK', 
-        resistance_to_voltage : '', 
+        resistance_to_voltage : '1500 V', 
         technical_certification : 'OK', 
-        origin_germany : 'OK', 
+        origin_germany : '', 
         magnet_base_switch : 'OK', 
         isolation : 'OK', 
         electronic_circuit_board : '', 
@@ -48,6 +48,10 @@ const AddCertificate = () => {
     const [errors, setErrors] = useState({})
     const [btnLoader, setBtnLoader] = useState(false);
     const [isMachineDisabled, setIsMachineDisabled] = useState(true)
+    const [observationData] = useState([{label: '230 Volt, 50-60Hz', id: '230 Volt, 50-60Hz'}, {label: '110 Volt, 50-60Hz', id: '110 Volt, 50-60Hz'}])
+    const [observationSelected, setObservationSelected] = useState();
+    const [originData] = useState([{label: 'GERMANY', id: 'GERMANY'}, {label: 'INDIA', id: 'INDIA'}, {label: 'POLAND', id: 'POLAND'}]);
+    const [originSelected, setOriginSelected] = useState();
 
     useEffect(() => {
         (async() => {
@@ -125,7 +129,7 @@ const AddCertificate = () => {
       ) => {
         setMachineSelected(selectedOptions)
         const selectedMachine = machineData.find((machine) => {return machine.id === selectedOptions.id})
-        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, resistance_to_voltage: selectedMachine.voltage_resistance, observation: selectedMachine.observation, electronic_circuit_board: selectedMachine.electronic_circuit_board, machine_type: selectedMachine.name}
+        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, electronic_circuit_board: selectedMachine.electronic_circuit_board, machine_type: selectedMachine.name}
         setCertData(newDataObj)
         const newErrors = validateCertData(newDataObj)
         setErrors(newErrors)
@@ -179,6 +183,20 @@ const AddCertificate = () => {
         }
         
       }
+
+      const onChangeSelect4 = (
+        selectedOptions
+      ) => {
+        setOriginSelected(selectedOptions)
+        certData.origin_germany = selectedOptions.id
+      };
+
+      const onChangeSelect3 = (
+        selectedOptions
+      ) => {
+        setObservationSelected(selectedOptions)
+        certData.observation = selectedOptions.id
+      };
 
       useEffect(() => {
         if(printData && Object.keys(printData).length > 0){
@@ -345,8 +363,20 @@ const AddCertificate = () => {
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <div className="d-flex checkbox-input">
-                                                                    <span>Überwachung</span>
-                                                                    <input type="text" className="form-control" name="observation" value={certData.observation} />
+                                                                    <span>BEMERKUNGEN</span>
+                                                                    {/* <input type="text" className="form-control" name="observation" value={certData.observation} /> */}
+                                                                    <Select id="single"
+                                                                    className="react-select-container"
+                                                                    classNamePrefix="react-select"
+                                                                    closeMenuOnSelect={true}
+                                                                    isClearable
+                                                                    components={animatedComponents}
+                                                                    options={observationData} 
+                                                                    value={observationSelected}
+                                                                    getOptionValue={option=>option.id}
+                                                                    onChange={onChangeSelect3}
+                                                                    placeholder={<div className="select-placeholder-text">wählen...</div>} 
+                                                                    name="observation"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -376,9 +406,10 @@ const AddCertificate = () => {
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <div className="d-flex checkbox-input">
-                                                                    <span>Spannungsfestigkeit</span>
-                                                                    <input type="text" className="form-control" name="resistance_to_voltage" value={certData.resistance_to_voltage} />
+                                                                <span>Spannungsfestigkeit</span>
+                                                                    <div className="d-flex">
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default"  name="resistance_to_voltage" onChange={handleChange} value="1500 V" defaultChecked={true}/>
+                                                                <span>1500V</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -426,7 +457,7 @@ const AddCertificate = () => {
                                                     
                                                     
 
-                                                    <div className="col-md-4">
+                                                    {/* <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
                                                                 <span>Herkunft: Deutschland</span>
@@ -436,7 +467,7 @@ const AddCertificate = () => {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> */}
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
@@ -449,12 +480,29 @@ const AddCertificate = () => {
                                                         </div>
                                                     </div>
                                                     
-                                                    
-                                                    
                                                     <div className="col-md-4">
-                                                        
+                                                        <div className="check-form form-group">
+                                                            <div className="form-check form-check-primary form-check-inline volt-checkbox">
+                                                                <div className="d-flex checkbox-input">
+                                                                    <span>HERKUNFT</span>
+                                                                    <Select id="single"
+                                                                    className="react-select-container"
+                                                                    classNamePrefix="react-select"
+                                                                    closeMenuOnSelect={true}
+                                                                    isClearable
+                                                                    components={animatedComponents}
+                                                                    options={originData} 
+                                                                    value={originSelected}
+                                                                    getOptionValue={option=>option.id}
+                                                                    onChange={onChangeSelect4}
+                                                                    placeholder={<div className="select-placeholder-text">wählen...</div>} 
+                                                                    name="origin_germany"/>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
 
+                                                    <div className="col-md-4"></div>
                                                 
                                                 </div>
 
