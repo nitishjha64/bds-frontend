@@ -358,29 +358,20 @@ const AddCertificate = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <div className="d-flex checkbox-input">
-                                                                    <span>BEMERKUNGEN</span>
-                                                                    {/* <input type="text" className="form-control" name="observation" value={certData.observation} /> */}
-                                                                    <Select id="single"
-                                                                    className="react-select-container"
-                                                                    classNamePrefix="react-select"
-                                                                    closeMenuOnSelect={true}
-                                                                    isClearable
-                                                                    components={animatedComponents}
-                                                                    options={observationData} 
-                                                                    value={observationSelected}
-                                                                    getOptionValue={option=>option.id}
-                                                                    onChange={onChangeSelect3}
-                                                                    placeholder={<div className="select-placeholder-text">wählen...</div>} 
-                                                                    name="observation"/>
+                                                                <span>Isolierung</span>
+                                                                    <div className="d-flex">
+                                                                <input className="form-check-input" type="checkbox" id="form-check-default"   name="isolation" onChange={handleChange} value="OK" defaultChecked='OK' />
+                                                                <span>OK</span>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                    
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
@@ -468,17 +459,30 @@ const AddCertificate = () => {
                                                             </div>
                                                         </div>
                                                     </div> */}
+
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Isolierung</span>
-                                                                    <div className="d-flex">
-                                                                <input className="form-check-input" type="checkbox" id="form-check-default"   name="isolation" onChange={handleChange} value="OK" defaultChecked='OK' />
-                                                                <span>OK</span>
+                                                                <div className="d-flex checkbox-input">
+                                                                    <span>BEMERKUNGEN</span>
+                                                                    {/* <input type="text" className="form-control" name="observation" value={certData.observation} /> */}
+                                                                    <Select id="single"
+                                                                    className="react-select-container"
+                                                                    classNamePrefix="react-select"
+                                                                    closeMenuOnSelect={true}
+                                                                    isClearable
+                                                                    components={animatedComponents}
+                                                                    options={observationData} 
+                                                                    value={observationSelected}
+                                                                    getOptionValue={option=>option.id}
+                                                                    onChange={onChangeSelect3}
+                                                                    placeholder={<div className="select-placeholder-text">wählen...</div>} 
+                                                                    name="observation"/>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
                                                     
                                                     <div className="col-md-4">
                                                         <div className="check-form form-group">
