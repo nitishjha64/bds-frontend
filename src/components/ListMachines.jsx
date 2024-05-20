@@ -29,16 +29,16 @@ const ListMachines = () => {
             selector: row => row.brand_name,
             sortable: true,
         },
-        // {
-        //     name: 'SPANNUNGSFESTIGKEIT',
-        //     selector: row => row.voltage_resistance,
-        //     sortable: true,
-        // },
-        // {
-        //     name: 'ÜBERWACHUNG',
-        //     selector: row => row.observation,
-        //     sortable: true,
-        // },
+        {
+            name: 'SPANNUNGSFESTIGKEIT',
+            selector: row => row.voltage_resistance,
+            sortable: true,
+        },
+        {
+            name: 'ÜBERWACHUNG',
+            selector: row => row.observation,
+            sortable: true,
+        },
         {
             name: 'ERSTELLUNGSDATUM',
             selector: row => moment(row.created_at).format('M/D/YYYY'),
@@ -107,7 +107,7 @@ if(!loading){
                     <div className="col-md-4">
                         <a className="border-btn add-btn mt-0" onClick={onClickAdd}>
                             <font style={{verticalAlign: 'inherit'}}>
-                                <font style={{verticalAlign: 'inherit', textTransform: 'uppercase'}}>+ hinzufügen</font>
+                                <font style={{verticalAlign: 'inherit', textTransform: 'uppercase'}}>+ HINZUFÜGEN</font>
                             </font>
                         </a>
                     </div>

@@ -185,13 +185,6 @@ const AddMachine = () => {
                                                         </div>
 
                                                         <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
-                                                                <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
                                                             <div className="">
                                                                 <label className="form-label">PRODUKTFOTO</label>
                                                                 <div className="profile-image">
@@ -200,12 +193,21 @@ const AddMachine = () => {
                                                                         <Form.Control type="file" onChange={handleFileChange} name="file" accept="image/png, image/jpeg, image/gif" className="form-control" />
                                                                     </div>
                                                                     {data.image && (
-                                                                        <img src={`${process.env.REACT_APP_API_URL}/${data.image}`} width={200} height={200} style={{objectFit: 'contain'}}/>
+                                                                        <img src={`${process.env.REACT_APP_API_URL}/${data.image}`} width={200} height={200} style={{objectFit: 'contain', marginTop: '20px'}}/>
                                                                     )}
                                                                     
                                                                 </div>
                                                             </div>
-                                                        </div>                                                        
+                                                        </div>  
+
+                                                        <div className="col-md-6">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
+                                                                <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
+                                                            </div>
+                                                        </div>
+
+                                                                                                              
                                                     </div>
                                                     <button onClick={saveData} type="button" className="submit-btn" disabled={btnLoader ? true: false}>SPEICHERN</button>
                                                 </div>
