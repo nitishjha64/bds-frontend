@@ -47,6 +47,8 @@ const ListCertificates = () => {
         
     };
 
+    
+
     const fetchCertificates = async page => {
         setLoading(true);
         if(localStorage.getItem('token')){
@@ -62,6 +64,11 @@ const ListCertificates = () => {
         }
         
         setLoading(false);
+    };
+
+    const paginationComponentOptions = {
+        rowsPerPageText: 'ZEILEN PRO SEITE',
+        rangeSeparatorText: 'VON',
     };
 
     const handlePageChange = page => {
@@ -109,7 +116,7 @@ const ListCertificates = () => {
                         </div>
                     </div>
                 </div>
-                <DataTable columns={columns} data={data} progressPending={loading} pagination paginationServer paginationTotalRows={totalRows} paginationDefaultPage={currentPage} onChangeRowsPerPage={handlePerRowsChange} onChangePage={handlePageChange} />
+                <DataTable columns={columns} data={data} progressPending={loading} pagination paginationServer paginationTotalRows={totalRows} paginationDefaultPage={currentPage} onChangeRowsPerPage={handlePerRowsChange} onChangePage={handlePageChange} paginationComponentOptions={paginationComponentOptions}/>
                
             </>
         )

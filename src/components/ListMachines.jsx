@@ -79,6 +79,11 @@ const ListMachines = () => {
         setCurrentPage(page);
     };
 
+    const paginationComponentOptions = {
+        rowsPerPageText: 'ZEILEN PRO SEITE',
+        rangeSeparatorText: 'VON',
+    };
+
     const handlePerRowsChange = async (newPerPage, page) => {
         setLoading(true);
         const response = await axios.get(`${process.env.REACT_APP_API_URL}/machines?page=${page}&per_page=${newPerPage}`,{
@@ -113,7 +118,7 @@ if(!loading){
                     </div>
                 </button>
             </div>
-            <DataTable columns={columns} data={data} progressPending={loading} pagination paginationServer paginationTotalRows={totalRows} paginationDefaultPage={currentPage} onChangeRowsPerPage={handlePerRowsChange} onChangePage={handlePageChange} />
+            <DataTable columns={columns} data={data} progressPending={loading} pagination paginationServer paginationTotalRows={totalRows} paginationDefaultPage={currentPage} onChangeRowsPerPage={handlePerRowsChange} onChangePage={handlePageChange} paginationComponentOptions={paginationComponentOptions} />
         </>
     )
 } else {
