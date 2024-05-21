@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import axios from 'axios'
+import moment from 'moment';
 import { useParams } from "react-router-dom";
 
 const LandingCertificate = () => {
@@ -12,13 +13,13 @@ const LandingCertificate = () => {
     useEffect(() => {
         if(id){
             (async () => {
-                const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/certificate/${id}`,{
+                const {data} = await axios.get(`${process.env.REACT_APP_API_URL}/brandMachineById/${id}`,{
                     headers: {
                         'Authorization': localStorage.getItem('token'),
                     }
                 })
-                console.log("DDDD", data.data[0])
-                setCertData(data.data[0])
+                setCertData(data)
+                console.log(data)
                 setLoading(false)
             })();
         }
@@ -49,13 +50,13 @@ const LandingCertificate = () => {
                         <div className="product-imgs">
                         <div className="img-display">
                             <div className="img-showcase">
-                            <img src={`${process.env.REACT_APP_API_URL}/${certData.machine_image}`} />
+                            <img src={`${process.env.REACT_APP_API_URL}/${certData.image}`} />
                             </div>
                         </div>
                         </div>
                         {/* card right */}
                         <div className="product-content">
-                        <h2 className="product-title">MAB 825 V / MAB 845 V</h2>
+                        <h2 className="product-title">{certData.name}</h2>
                         <h3>THE HEAVY-DUTY AUTOMATIC MAGNETIC DRILL</h3>
                         <div className="product-detail">
                             <h2>about this machine: </h2>
@@ -88,7 +89,7 @@ const LandingCertificate = () => {
 
                 <footer>
                     <p>
-                    Copyright © 2023 BDS Maschinen GmbH, Martinstrasse 108, 41063 –
+                    Copyright © {moment().format('YYYY')} BDS Maschinen GmbH, Martinstrasse 108, 41063 –
                     Moenchengladbach, Germany
                     </p>
                 </footer>

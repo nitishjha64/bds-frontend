@@ -6,10 +6,13 @@ import moment from "moment";
 const PrintCertificate = forwardRef((props, ref) => {
     const {data} = props
 
+    console.log("DATA", data)
+
     return (
         <>
             <div ref={ref}>
-            {props.data && data && data.length > 0 && data.map((val, i) => (
+            {/* {props.data && data && data.length > 0 && data.map((val, i) => ( */}
+            { data && data.crowd && data.crowd > 0 && [...Array(data.crowd)].map((val, i) => (
                 // eslint-disable-next-line react/jsx-key
                 <div
                 className="pdf-doc"
@@ -43,7 +46,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                     </div>
                     <div className="col-md-4 col-sm-4 right">
                       <img
-                        src={`${process.env.REACT_APP_API_URL}/${val.brand_image}`}
+                        src={`${process.env.REACT_APP_API_URL}/${data.brand_image}`}
                         style={{ float: "right", width: "20%" }}
                       />
                     </div>
@@ -74,7 +77,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                                {val.checked_by}
+                                {data.checked_by}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -105,7 +108,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                                {moment(val.created_at).format('DD.MM.YYYY')}
+                                {moment(data.created_at).format('DD.MM.YYYY')}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -137,7 +140,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.machine_type}
+                              {data.machine_type}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -169,7 +172,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.serialNo}
+                              {data.serialNoPart1 + String(parseInt(data.recordsCount + i)).padStart(3, '0')}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -201,7 +204,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.perpendicularity}
+                              {data.perpendicularity}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -233,7 +236,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.tolerance_of_spindle}
+                              {data.tolerance_of_spindle}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -275,7 +278,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.magnet_base_switch}
+                              {data.magnet_base_switch}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -307,7 +310,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.motor_switch}
+                              {data.motor_switch}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -339,7 +342,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.guide}
+                              {data.guide}
                             </td>
                           </tr>
                           <tr style={{ display: "flex", minHeight: "auto" }}>
@@ -365,7 +368,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 padding: 10
                               }}
                             >
-                              <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${val.serialNo}`} style={{ width: 100, height: 100 }}/>
+                              <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${data.machine_id}`} style={{ width: 100, height: 100 }}/>
                             </td>
                           </tr>
                         </tbody>
@@ -406,7 +409,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.origin_germany}
+                              {data.origin_germany}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -438,7 +441,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.isolation}
+                              {data.isolation}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -468,7 +471,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.insulation_resistance}
+                              {data.insulation_resistance}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -500,7 +503,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.resistance_to_voltage}
+                              {data.resistance_to_voltage}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -542,7 +545,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.electronic_circuit_board == 1 ? 'YES' : 'NO'}
+                              {data.electronic_circuit_board == 1 ? 'YES' : 'NO'}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -574,7 +577,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.accessories}
+                              {data.accessories}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -608,7 +611,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                               {val.technical_certification}
+                               {data.technical_certification}
                             </td>
                           </tr>
                           <tr style={{ display: "flex" }}>
@@ -670,7 +673,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 color: "green"
                               }}
                             >
-                              {val.observation}
+                              {data.observation}
                             </td>
                           </tr>
                           <tr style={{ display: "flex", minHeight: "auto" }}>
@@ -693,13 +696,13 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 padding: 10
                               }}
                             >
-                                <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${val.serialNo}`} style={{ width: 100, height: 100, visibility: 'hidden' }}/>
+                                <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${data.machine_id}`} style={{ width: 100, height: 100, visibility: 'hidden' }}/>
                             </td>
                           </tr>
                         </tbody>
                       </table>
                       <a
-                        href={`${val.brand_website}`}
+                        href={`${data.brand_website}`}
                         style={{
                           margin: "5px 0 !important",
                           color: "#000",

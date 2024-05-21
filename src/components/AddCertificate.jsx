@@ -22,12 +22,12 @@ const AddCertificate = () => {
         insulation_resistance : 'OK', 
         perpendicularity : 'OK', 
         accessories : 'OK', 
-        observation : '', 
+        observation : '230 Volt, 50-60Hz', 
         tolerance_of_spindle : 'OK', 
         guide : 'OK', 
         resistance_to_voltage : '1500 V', 
         technical_certification : 'OK', 
-        origin_germany : '', 
+        origin_germany : 'GERMANY', 
         magnet_base_switch : 'OK', 
         isolation : 'OK', 
         electronic_circuit_board : '', 
@@ -176,7 +176,7 @@ const AddCertificate = () => {
                         'Authorization': localStorage.getItem('token'),
                     }
                 })
-                setPrintData(response.data)
+                setPrintData(response.data[0])
             }
         } catch(error){
             setBtnLoader(false)

@@ -29,16 +29,16 @@ const ListMachines = () => {
             selector: row => row.brand_name,
             sortable: true,
         },
-        {
-            name: 'SPANNUNGSFESTIGKEIT',
-            selector: row => row.voltage_resistance,
-            sortable: true,
-        },
-        {
-            name: 'ÜBERWACHUNG',
-            selector: row => row.observation,
-            sortable: true,
-        },
+        // {
+        //     name: 'SPANNUNGSFESTIGKEIT',
+        //     selector: row => row.voltage_resistance,
+        //     sortable: true,
+        // },
+        // {
+        //     name: 'ÜBERWACHUNG',
+        //     selector: row => row.observation,
+        //     sortable: true,
+        // },
         {
             name: 'ERSTELLUNGSDATUM',
             selector: row => moment(row.created_at).format('M/D/YYYY'),
