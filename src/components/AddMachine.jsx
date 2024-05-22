@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddMachine = () => {
     const navigate = useNavigate();
-    const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0})
+    const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0, description: ''})
     const [loading, setLoading] = useState(true);
     const [brandData, setBrandData] = useState([])
     const animatedComponents = makeAnimated();
@@ -204,6 +204,13 @@ const AddMachine = () => {
                                                             <div className="mb-4">
                                                                 <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
                                                                 <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">Maschinenbeschreibung</label>
+                                                                {/* <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/> */}
+                                                                <textarea className="form-control" value={data.description} name="description" onChange={handleChange}></textarea>
                                                             </div>
                                                         </div>
 

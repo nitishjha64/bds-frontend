@@ -57,25 +57,20 @@ const LandingCertificate = () => {
                         {/* card right */}
                         <div className="product-content">
                         <h2 className="product-title">{certData.name}</h2>
-                        <h3>THE HEAVY-DUTY AUTOMATIC MAGNETIC DRILL</h3>
+                        {/* <h3>THE HEAVY-DUTY AUTOMATIC MAGNETIC DRILL</h3> */}
                         <div className="product-detail">
                             <h2>about this machine: </h2>
                             <p>
-                            Full performance and flexibility for steel, plant and machine
-                            construction. With adjustable automatic feed. An ideal machine for
-                            drilling with Twist Drills with Morse Taper 3 shanks. The premium
-                            made in Germany automatic magnetic drilling machine. Thanks to
-                            reversible motor MAB 825V can also perform tapping (thread
-                            cutting).
+                            {certData.description}
                             </p>
                             {/*<p>The automatic feed is at the turnstile coupled in and out and can be switched on in any position. The infinitely variable feed speed ensures for optimal use of the respective tool. When the upper or lower end position is reached. The feed is automatically deactivated. Further processing is by manual switchover anytime possible. Safety control switch-off: If the magnet loses its grip, the drill and feed motor switch off automatically. The automatic magnetic drilling machine can also be used with manual feed.</p>*/}
-                            <ul>
+                            {/* <ul>
                             <li> Variable automatic feed and automatic reverse</li>
                             <li> Manual drilling option</li>
                             <li> Variable speed &amp; torque controls</li>
                             <li> Available with Swivel Base options model number MAB 845V</li>
                             <li> 4 Speed gear and Morse taper 3</li>
-                            </ul>
+                            </ul> */}
                         </div>
                         <h4>Check Product On Website</h4>
                         <div className="landing-btns">

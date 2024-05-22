@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 const EditMachine = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0})
+    const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0, description: ''})
     const [loading, setLoading] = useState(false);
     const [brandData, setBrandData] = useState([])
     const animatedComponents = makeAnimated();
@@ -206,13 +206,6 @@ const EditMachine = () => {
                                                         </div>
 
                                                         <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
-                                                                <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
-                                                            </div>
-                                                        </div>
-
-                                                        <div className="col-md-6">
                                                             <div className="">
                                                                 <label className="form-label">PRODUKTFOTO</label>
                                                                 <div className="profile-image">
@@ -225,6 +218,21 @@ const EditMachine = () => {
                                                                     )}
                                                                     
                                                                 </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="col-md-6">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
+                                                                <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="col-md-6">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">Maschinenbeschreibung</label>
+                                                                {/* <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/> */}
+                                                                <textarea className="form-control" value={data.description} name="description" onChange={handleChange}></textarea>
                                                             </div>
                                                         </div>                                                        
                                                     </div>
