@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import Form from 'react-bootstrap/Form';
 import LoaderCustom from "./LoaderCustom";
 import PrintCertificate from "./PrintCertificate";
-import PropagateLoader from 'react-spinners/PropagateLoader'
 import Select from 'react-select';
 import axios from 'axios';
 import makeAnimated from 'react-select/animated';
