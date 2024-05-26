@@ -94,7 +94,7 @@ const AddMachine = () => {
     }
 
     const handleChange = (event) => {
-        let value = event.target.value.replace(/\s/g, '')
+        let value = event.target.value
         if(event.target.name === 'electronic_circuit_board')
         {
             value = parseInt(value)
