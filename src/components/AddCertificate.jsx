@@ -52,6 +52,8 @@ const AddCertificate = () => {
     const [observationSelected, setObservationSelected] = useState();
     const [originData] = useState([{label: 'GERMANY', id: 'GERMANY'}, {label: 'INDIA', id: 'INDIA'}, {label: 'POLAND', id: 'POLAND'}]);
     const [originSelected, setOriginSelected] = useState();
+    const scrollRef = useRef(null);
+
 
     useEffect(() => {
         (async() => {
@@ -120,8 +122,8 @@ const AddCertificate = () => {
         const newDataObj = {...certData, brand_id: selectedOptions.id, brand_email: selectedOptions.email, brand_website: selectedOptions.brand_website, brand_image: selectedOptions.logo}
         setCertData(newDataObj)
         await fetchMachines(selectedOptions.id)
-        const newErrors = validateCertData(newDataObj)
-        setErrors(newErrors)
+        // const newErrors = validateCertData(newDataObj)
+        // setErrors(newErrors)
       };
 
       const onChangeMachineSelect2 = (
@@ -131,15 +133,15 @@ const AddCertificate = () => {
         const selectedMachine = machineData.find((machine) => {return machine.id === selectedOptions.id})
         const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, electronic_circuit_board: selectedMachine.electronic_circuit_board, machine_type: selectedMachine.name}
         setCertData(newDataObj)
-        const newErrors = validateCertData(newDataObj)
-        setErrors(newErrors)
+        // const newErrors = validateCertData(newDataObj)
+        // setErrors(newErrors)
       };
 
       const handleChange = (event) => {
         let dataObj = {...certData, [event.target.name] : event.target.value}
         setCertData(dataObj)
-        const newErrors = validateCertData(dataObj)
-        setErrors(newErrors)
+        // const newErrors = validateCertData(dataObj)
+        // setErrors(newErrors)
       }
 
       const validateCertData = (data) => {
@@ -168,6 +170,7 @@ const AddCertificate = () => {
         try{
             const newErrors = validateCertData(certData)
             setErrors(newErrors)
+            scrollRef.current?.scrollIntoView({behavior: 'smooth'});
             if (Object.keys(newErrors).length === 0) {
                 setBtnLoader(true)
                 const response = await axios.post(`${process.env.REACT_APP_API_URL}/certificate`, certData, {
@@ -219,7 +222,7 @@ const AddCertificate = () => {
 
       if(!loading){
         return(
-                <div className="tab-pane fade show active" id="tab1-tab-pane" role="tabpanel" aria-labelledby="tab1-tab" tabIndex="0">
+                <div className="tab-pane fade show active" id="tab1-tab-pane" role="tabpanel" aria-labelledby="tab1-tab" tabIndex="0"  ref={scrollRef}>
                     <div className="row">
                         <div className="col-md-12">
                             <div className="wizard card-like">

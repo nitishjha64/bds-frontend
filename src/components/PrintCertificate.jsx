@@ -47,7 +47,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                     <div className="col-md-4 col-sm-4 right">
                       <img
                         src={`${process.env.REACT_APP_API_URL}/${data.brand_image}`}
-                        style={{ float: "right", width: "20%" }}
+                        style={{ float: "right", width: "45%" }}
                       />
                     </div>
                   </div>
@@ -169,7 +169,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "green",
                               }}
                             >
                               {data.serialNoPart1 + String(parseInt(data.recordsCount + i)).padStart(3, '0')}

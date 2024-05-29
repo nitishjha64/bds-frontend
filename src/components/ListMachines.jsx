@@ -41,7 +41,7 @@ const ListMachines = () => {
         // },
         {
             name: 'ERSTELLUNGSDATUM',
-            selector: row => moment(row.created_at).format('M/D/YYYY'),
+            selector: row => moment(row.created_at).format('DD.MM.YYYY'),
             sortable: true,
         },
         {

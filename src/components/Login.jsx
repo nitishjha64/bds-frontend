@@ -17,8 +17,8 @@ function Login() {
     const value = e.target.value
     const name = e.target.name
     setInputparams({...inputParams, [name]: value})
-    const newErrors = validateForm(inputParams);
-    setErrors(newErrors);
+    // const newErrors = validateForm(inputParams);
+    // setErrors(newErrors);
 
     
     
@@ -30,7 +30,7 @@ function Login() {
     if (!data.username.trim()) {
         errors.username = 'E-Mail ist erforderlich';
     } else if (!/\S+@\S+\.\S+/.test(data.username)) {
-        errors.username = 'Email is invalid';
+        errors.username = 'Email NICHT gültig';
     }
 
     if (!data.password) {
@@ -116,7 +116,7 @@ function Login() {
                             </Form.Group>
                             <div className="col-md-12">
                                 <div className="mb-4">
-                                    <button type="submit" disabled={btnLoader ? true : false} className='download-btn w-100'>einloggen</button>
+                                    <button type="submit" disabled={btnLoader ? true : false} className='download-btn w-100 uppercase'>EINLOGGEN</button>
                                 </div>
                             </div>
                         </div>
