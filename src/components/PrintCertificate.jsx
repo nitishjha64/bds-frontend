@@ -74,7 +74,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold",
                               }}
                             >
                                 {data.checked_by}
@@ -105,7 +105,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                                 {moment(data.created_at).format('DD.MM.YYYY')}
@@ -137,7 +137,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.machine_type}
@@ -169,7 +169,8 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green",
+                                color: "black", fontWeight: "bold"
+                                
                               }}
                             >
                               {data.serialNoPart1 + String(parseInt(data.recordsCount + i)).padStart(3, '0')}
@@ -201,7 +202,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.perpendicularity}
@@ -233,7 +234,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.tolerance_of_spindle}
@@ -275,7 +276,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.magnet_base_switch}
@@ -307,7 +308,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.motor_switch}
@@ -330,7 +331,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 <span style={{ fontWeight: 500 }}>Tolerance guide glissière</span>
                                 <span style={{ fontWeight: 500 }}>Control escobillas</span>
                                 <span style={{ fontWeight: 500 }}>Adjustedas guias</span>
-                                        <span style={{ fontWeight: 500 }}>Tolleranza guide scorrimento</span>
+                                <span style={{ fontWeight: 500 }}>Tolleranza guide scorrimento</span>
                               </div>
                             </th>
                             <td
@@ -339,7 +340,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.guide}
@@ -356,8 +357,13 @@ const PrintCertificate = forwardRef((props, ref) => {
                             >
                               <div className="data" style={{ display: "grid" }}>
                                 <span style={{ fontWeight: "bolder" }}>
-                                  <b>QR Code</b>
+                                    <b>CODE SCANNEN FÜR INFOS/UNTERLAGEN</b>
                                 </span>
+                                <span style={{ fontWeight: 500 }}>SCAN CODE FOR INFO/DOCUMENTS</span>
+                                <span style={{ fontWeight: 500 }}>NUMÉRISER LE CODE POUR INFO/DOCUMENTS</span>
+                                <span style={{ fontWeight: 500 }}>ESCANEAR CÓDIGO PARA INFO/DOCUMENTOS</span>
+                                <span style={{ fontWeight: 500 }}>SCANSIONE DEL CODICE PER INFO/DOCUMENTI</span>
+                                <span style={{ fontWeight: 500 }}>CÓDIGO DE VERIFICAÇÃO DE INFO/DOCUMENTOS</span>
                               </div>
                             </th>
                             <td
@@ -368,7 +374,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 padding: 10
                               }}
                             >
-                              <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${data.machine_id}`} style={{ width: 100, height: 100 }}/>
+                              <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${data.machine_id}/${encodeURI(data.serialNoPart1 + String(parseInt(data.recordsCount + i)).padStart(3, '0'))}`} style={{ width: 100, height: 100 }}/>
                             </td>
                           </tr>
                         </tbody>
@@ -406,7 +412,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.origin_germany}
@@ -438,7 +444,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.isolation}
@@ -468,7 +474,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.insulation_resistance}
@@ -500,7 +506,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.resistance_to_voltage}
@@ -542,7 +548,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.electronic_circuit_board == 1 ? 'YES' : 'NO'}
@@ -574,7 +580,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.accessories}
@@ -608,7 +614,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                                {data.technical_certification}
@@ -640,7 +646,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             ></td>
                           </tr>
@@ -670,7 +676,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 border: "1px solid #000",
                                 width: "100%",
                                 padding: 10,
-                                color: "green"
+                                color: "black", fontWeight: "bold"
                               }}
                             >
                               {data.observation}
@@ -682,10 +688,18 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 borderCollapse: "separate",
                                 border: "1px solid #000",
                                 width: "100%",
-                                padding: 10
+                                padding: 10,
                               }}
                             >
-                              <div className="data" style={{ display: "grid" }}>
+                              <div className="data" style={{ display: "grid", visibility: "hidden" }} >
+                                <span style={{ fontWeight: "bolder" }}>
+                                    <b>CODE SCANNEN FÜR INFOS/UNTERLAGEN</b>
+                                </span>
+                                <span style={{ fontWeight: 500 }}>SCAN CODE FOR INFO/DOCUMENTS</span>
+                                <span style={{ fontWeight: 500 }}>NUMÉRISER LE CODE POUR INFO/DOCUMENTS</span>
+                                <span style={{ fontWeight: 500 }}>ESCANEAR CÓDIGO PARA INFO/DOCUMENTOS</span>
+                                <span style={{ fontWeight: 500 }}>SCANSIONE DEL CODICE PER INFO/DOCUMENTI</span>
+                                <span style={{ fontWeight: 500 }}>CÓDIGO DE VERIFICAÇÃO DE INFO/DOCUMENTOS</span>
                               </div>
                             </th>
                             <td
@@ -696,7 +710,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                                 padding: 10
                               }}
                             >
-                                <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${data.machine_id}`} style={{ width: 100, height: 100, visibility: 'hidden' }}/>
+                              <QRCodeSVG value={`${process.env.REACT_APP_WEB_URL}/landing/${data.machine_id}`} style={{ width: 100, height: 100, visibility: "hidden" }}/>
                             </td>
                           </tr>
                         </tbody>

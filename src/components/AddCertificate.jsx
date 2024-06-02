@@ -269,7 +269,7 @@ const AddCertificate = () => {
                                                 <div className="col-sm-6">
                                                     <div className="form-group">
                                                         <div className="mb-4">
-                                                            <label className="form-label">ARTIKEL NUMMER</label>
+                                                            <label className="form-label">ARTIKELNUMMER</label>
                                                             <Select id="single"
                                                             className="react-select-container"
                                                             classNamePrefix="react-select"

@@ -44,10 +44,49 @@
 .landing-page .main-content{margin:40px 0}.card{padding:30px}footer{text-align:center;padding:15px}
 .landing-page .landing-btns{display:flex;align-items:center;}
 .landing-page .landing-btns a:hover{text-decoration:none}
-.landing-page .landing-btns a{font-size:18px;background:#009ed6;color:#fff;padding:10px 20px;border-radius:5px;margin-right: 20px;}
+.landing-page .landing-btns a{    font-size: 20px ! IMPORTANT;
+    background: #898989;
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 0;
+    margin-right: 20px;
+    font-weight: 900;
+}
 .landing-page footer p{margin:0}
 .landing-page .product-content h4 {font-size: 17px;}
 .landing-page .header-inner {width: 90%; display: flex;align-items: baseline;justify-content: space-between;margin: 0 auto;}
+.blue-btn .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #009ed6;
+    color: #ffff;
+    padding: 10px 15px;
+}
+
+.blue-btn .content h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.blue-btn .content h2 {
+    font-size: 25px;
+    font-weight: 900;
+    margin: 0;
+}
+.blue-btn {
+    margin-bottom: 30px;
+}
+
+@media screen and (max-width: 1920px){
+    .blue-btn .content h3 {
+    font-size: 13px;
+}
+.blue-btn .content h2 {
+    font-size: 20px;
+}
+}
 @media screen and (min-width: 992px){
     .landing-page .landing-btns{width:100%}
     .landing-page .landing-btns a{font-size: 14px;}
@@ -69,4 +108,10 @@
     .landing-page .landing-btns a{padding:10px;font-size:14px}
     .landing-page .landing-btns{justify-content:space-between}
     .landing-page footer p {font-size: 13px;}
+    .blue-btn .content {
+        margin-bottom: 20px;
+    }
+    .landing-btns a:last-child {
+        margin: 0;
+    }
 }

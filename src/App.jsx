@@ -15,7 +15,7 @@ function App() {
         <Route path="/machines/:id" element={<EditMachine/>} />
         <Route path="/machines" element={<AddMachine/>} />
         <Route path="/pdf" element={<PrintCertificate />} />
-        <Route path="/landing/:id" element={<LandingCertificate />} />
+        <Route path="/landing/:id/:serialNo" element={<LandingCertificate />} />
       </Routes>
   )
   

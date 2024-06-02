@@ -172,7 +172,7 @@ const AddMachine = () => {
 
                                                         <div className="col-md-6">
                                                             <div className="mb-4">
-                                                                <label className="form-label">MASCHINENTYP</label>
+                                                                <label className="form-label">ARTIKELNUMMER</label>
                                                                 <input type="text" className="form-control" value={data.name} name="name" onChange={handleChange} />
                                                             </div>
                                                         </div>
@@ -204,13 +204,6 @@ const AddMachine = () => {
                                                             <div className="mb-4">
                                                                 <label className="form-label">ENGLISCHE PRODUKTSEITE</label>
                                                                 <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-6">
-                                                            <div className="mb-4">
-                                                                <label className="form-label">Maschinenbeschreibung</label>
-                                                                {/* <input type="url" className="form-control" value={data.link_en} name="link_en" onChange={handleChange}/> */}
-                                                                <textarea className="form-control" value={data.description} name="description" onChange={handleChange}></textarea>
                                                             </div>
                                                         </div>
 

@@ -15,7 +15,7 @@ const ListMachines = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const columns = [
         {
-            name: 'Pos.',
+            name: 'POS.',
             selector: row => row.pos,
             sortable: true,
         },
