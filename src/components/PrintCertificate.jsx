@@ -6,14 +6,14 @@ import moment from "moment";
 const PrintCertificate = forwardRef((props, ref) => {
     const {data} = props
 
-    console.log("DATA", data)
-
     return (
         <>
             <div ref={ref}>
             {/* {props.data && data && data.length > 0 && data.map((val, i) => ( */}
             { data && data.crowd && data.crowd > 0 && [...Array(data.crowd)].map((val, i) => (
-                // eslint-disable-next-line react/jsx-key
+                [...Array(3)].map(() => (
+
+                  // eslint-disable-next-line react/jsx-key
                 <div
                 className="pdf-doc"
                 style={{
@@ -732,6 +732,9 @@ const PrintCertificate = forwardRef((props, ref) => {
                   </div>
                 </div>
               </div>
+
+                ))
+                
               
             ))}
             </div>

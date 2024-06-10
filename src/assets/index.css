@@ -21,3 +21,7 @@ div#zero-config1_filter{
 .dt--top-section {
   margin: 20px 21px 20px 21px;
 }
+.step .col-md-4 {
+  border-right: 1px solid #fff;
+  margin-bottom: 50px;
+}

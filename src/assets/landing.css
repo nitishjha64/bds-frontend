@@ -26,7 +26,7 @@
 .landing-page .last-price span{color:#f64749;text-decoration:line-through}
 .landing-page .new-price span{color:#256eff}
 .landing-page .product-detail h2{text-transform:capitalize;color:#12263a;font-size:20px}
-.landing-page .product-detail p{font-size:.9rem;padding:.3rem;opacity:.8}
+.landing-page .product-detail p{font-size:.9rem;padding:.3rem;opacity:.8; text-align: justify;}
 .landing-page .product-detail ul{margin:1rem 0;font-size:.9rem}
 .landing-page .product-detail ul li{margin:.4rem 0;list-style:none;padding-left:1.7rem;font-weight:600;opacity:.9;position:relative}
 .landing-page .purchase-info{margin:1.5rem 0}
@@ -66,12 +66,12 @@
 
 .blue-btn .content h3 {
     color: #fff;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: 900;
 }
 
 .blue-btn .content h2 {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 900;
     margin: 0;
 }
@@ -103,7 +103,7 @@
     .landing-page .main-content{margin:30px 0}
     .landing-page .product-title{font-size:26px}
     .landing-page .product-content{padding:15px 0}
-    .landing-page .product-content h3{font-size:19px}
+    .landing-page .product-content h3{font-size:13px}
     .landing-page .product-detail h2{font-size:15px}
     .landing-page .landing-btns a{padding:10px;font-size:14px}
     .landing-page .landing-btns{justify-content:space-between}
@@ -114,4 +114,10 @@
     .landing-btns a:last-child {
         margin: 0;
     }
+}
+
+.halfLineBreak{
+    height:5px; 
+    visibility:hidden;
+    margin: 0 5px;
 }
