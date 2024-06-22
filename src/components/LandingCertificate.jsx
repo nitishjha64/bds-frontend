@@ -39,7 +39,7 @@ const LandingCertificate = () => {
                     <div className="header-inner">
                         {/* <img src={`${process.env.REACT_APP_API_URL}/${certData.brand_image}`} /> */}
                         <img src='/static/bds-logo.png' />
-                        <h2>{certData.name}</h2>
+                        {/* <h2>{certData.name}</h2> */}
                     </div>
                     </div>
                 </header>
@@ -106,14 +106,14 @@ const LandingCertificate = () => {
 <div className="blue-btn">
             <div className="row">
                 <div className="col-md-6">
-                    <div className="content">
+                    <div className="content model-content">
                         <div className="txt">
                             <h3>MODEL</h3>
                             <h3 className="mb-0">MODEL</h3>          
                         </div>
                    
                 <div className="number">
-                  <h2>AirMAB 5000</h2>
+                  <h2>{certData.name}</h2>
                 </div>
                  </div>
             </div>
@@ -121,10 +121,10 @@ const LandingCertificate = () => {
                 <div className="content">
                 <div className="txt">
                     <h3>SERIAL NUMBER</h3>
-                    <h3 className="mb-0">SERIAL NUMBER</h3>
+                    <h3 className="mb-0">SERIENNUMMER</h3>
                 </div>
                 <div className="number">
-                  <h2>4852406001</h2>
+                  <h2>{serialNo}</h2>
                 </div>
                 </div>
             </div>

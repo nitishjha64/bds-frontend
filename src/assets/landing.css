@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
 
+body{text-transform: none;}
+
 
 .landing-page .product-link,.purchase-info .btn:first-of-type{background:#256eff}
 .landing-page .card-wrapper{width: 90%;margin:0 auto}
@@ -84,7 +86,7 @@
     font-size: 13px;
 }
 .blue-btn .content h2 {
-    font-size: 20px;
+    font-size: 16px;
 }
 }
 @media screen and (min-width: 992px){
@@ -99,13 +101,13 @@
     .landing-page .header-inner{display:block;text-align:center}
     .landing-page .header img{display:flex;margin:0 auto 15px;width:100px;height:70px}
     .landing-page .header h2{font-size:20px}.card{padding:20px}
-    .landing-page .img-showcase img{height:auto}
-    .landing-page .main-content{margin:30px 0}
+    .landing-page .img-showcase img{height: 300px;}
+    .landing-page .main-content{margin:10px 0}
     .landing-page .product-title{font-size:26px}
     .landing-page .product-content{padding:15px 0}
     .landing-page .product-content h3{font-size:13px}
     .landing-page .product-detail h2{font-size:15px}
-    .landing-page .landing-btns a{padding:10px;font-size:14px}
+    .landing-page .landing-btns a{padding:10px;font-size:14px !important}
     .landing-page .landing-btns{justify-content:space-between}
     .landing-page footer p {font-size: 13px;}
     .blue-btn .content {
@@ -114,10 +116,19 @@
     .landing-btns a:last-child {
         margin: 0;
     }
+    .landing-page .landing-btns a:hover {	
+        background: #009ed6;
+    }
+    .blue-btn .content h2 {	
+        font-size: 15px;
+    }
 }
 
 .halfLineBreak{
     height:5px; 
     visibility:hidden;
     margin: 0 5px;
+}
+.blue-btn .content{
+    min-height: 80px;
 }

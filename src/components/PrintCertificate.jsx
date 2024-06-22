@@ -29,7 +29,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                       <h2
                         style={{
                           fontWeight: 800,
-                          color: "#606060",
+                          color: "#000000",
                           fontSize: 15,
                           textTransform: "uppercase",
                           margin: 0
@@ -37,10 +37,10 @@ const PrintCertificate = forwardRef((props, ref) => {
                       >
                         PRÜFBERICHT
                       </h2>
-                      <p style={{ color: "#606060", lineHeight: "normal", fontSize: 12 }}>
+                      <p style={{ color: "#000000", lineHeight: "normal", fontSize: 12 }}>
                                 QUALITY TEST CERTIFICATE | BULLETIN DE CONTRÔLLE | परीक्षण प्रमाणपत्र
                             </p>
-                            <p style={{ color: "#606060", lineHeight: "normal", fontSize: 12 }}>
+                            <p style={{ color: "#000000", lineHeight: "normal", fontSize: 12 }}>
                             RAPPORTO DI CONTROLLO | FICHA TÉCNICA DE CONTROLLE DE QUALIDADE
                             </p>
                     </div>

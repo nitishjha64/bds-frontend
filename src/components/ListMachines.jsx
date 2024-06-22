@@ -21,7 +21,7 @@ const ListMachines = () => {
         },
         {
             name: 'ARTIKELNUMMER',
-            selector: row => row.serial_no,
+            selector: row => row.name,
             sortable: true,
         },
         {
