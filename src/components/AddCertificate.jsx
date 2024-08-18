@@ -33,7 +33,8 @@ const AddCertificate = () => {
         machine_image : '', 
         brand_image : '', 
         serial_no : '',
-        machine_type: ''
+        machine_type: '',
+        serial_prefix: ''
     }
     const animatedComponents = makeAnimated();
     const [brandData, setBrandData] = useState([])
@@ -131,7 +132,7 @@ const AddCertificate = () => {
       ) => {
         setMachineSelected(selectedOptions)
         const selectedMachine = machineData.find((machine) => {return machine.id === selectedOptions.id})
-        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, electronic_circuit_board: selectedMachine.electronic_circuit_board, machine_type: selectedMachine.name}
+        const newDataObj = {...certData, machine_id: selectedOptions.id, machine_image: selectedMachine.image, electronic_circuit_board: selectedMachine.electronic_circuit_board, machine_type: selectedMachine.name, serial_prefix : selectedMachine.serial_prefix}
         setCertData(newDataObj)
         // const newErrors = validateCertData(newDataObj)
         // setErrors(newErrors)
@@ -257,7 +258,7 @@ const AddCertificate = () => {
                                                 </div>
                                                 <div className="col-sm-6">
                                                     <div className="form-group">
-                                                        <label className="form-label">GEPRüFT VON</label>
+                                                        <label className="form-label">GEPRÜFT VON</label>
                                                         <input type="text" className="form-control" name="checked_by" onChange={handleChange} value={certData.checked_by} />
                                                         {errors.checked_by && 
                                                             <span className="error-message">
@@ -349,7 +350,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-12">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Technische Zertifizierung</span>
+                                                                <span className="uppercase">TECHNISCHE ZERTIFIZIERUNG</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name="technical_certification" value="OK" defaultChecked={true} />
                                                                 <span>OK</span>
@@ -401,7 +402,7 @@ const AddCertificate = () => {
                                                     <div className="col-md-12">
                                                         <div className="check-form form-group">
                                                             <div className="form-check form-check-primary form-check-inline volt-checkbox">
-                                                                <span>Zubehör</span>
+                                                                <span>ZUBEHÖR</span>
                                                                     <div className="d-flex">
                                                                 <input className="form-check-input" type="checkbox" id="form-check-default" name= "accessories" value="OK" defaultChecked={true} />
                                                                 <span>OK</span>

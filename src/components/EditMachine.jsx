@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 const EditMachine = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0, description: ''})
+    const [data, setData] = useState({name: '', voltage_resistance : '', link_en : '', link_ger : '', brand_id : '', observation : '', image : '', electronic_circuit_board: 0, description: '', serial_prefix: ''})
     const [loading, setLoading] = useState(false);
     const [brandData, setBrandData] = useState([])
     const animatedComponents = makeAnimated();
@@ -191,10 +191,17 @@ const EditMachine = () => {
                                                             </div>
                                                         </div>
 
-                                                        <div className="col-md-6">
+                                                        <div className="col-md-3">
                                                             <div className="mb-4">
                                                                 <label className="form-label">ARTIKELNUMMER</label>
                                                                 <input type="text" className="form-control" value={data.name} name="name" onChange={handleChange} />
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="col-md-3">
+                                                            <div className="mb-4">
+                                                                <label className="form-label">SERIENNUMMER PRAFIX</label>
+                                                                <input type="text" className="form-control" value={data.serial_prefix} name="serial_prefix" onChange={handleChange} />
                                                             </div>
                                                         </div>
 

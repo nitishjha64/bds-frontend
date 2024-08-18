@@ -22,7 +22,17 @@ const ListCertificates = () => {
         },
         {
             name: 'ARTIKELNUMMER',
-            selector: row => row.serial_no,
+            selector: row => row.machine_type,
+            sortable: true,
+        },
+        {
+            name: 'START SERIENNUMMER',
+            selector: row => row?.serial_no,
+            sortable: true,
+        },
+        {
+            name: 'END SERIENNUMMER',
+            selector: row => row?.endSerialNo,
             sortable: true,
         },
         {
@@ -37,7 +47,7 @@ const ListCertificates = () => {
         },
         {
             name: 'DATUM',
-            selector: row => moment(row.created_at).format('M.D.YYYY'),
+            selector: row => moment(row.created_at).format('DD.MM.YYYY'),
             sortable: true,
         }
     ];
@@ -46,6 +56,10 @@ const ListCertificates = () => {
         event.preventDefault()
         
     };
+
+    const getEndSerialNumber = (serialNoPart1, recordsCount, certCount) => {
+        serialNoPart1 + String(parseInt(recordsCount + certCount)).padStart(3, '0')
+    }
 
     
 
@@ -102,7 +116,7 @@ const ListCertificates = () => {
                         <div className="col-12 offset-sm-6 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3">
                             <div id="zero-config1_filter" className="dataTables_filter">
                                 <label>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="feather feather-search">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-search">
                                         <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                     </svg>
                                     <input type="search" className="form-control" placeholder="SUCHEN..." aria-controls="zero-config1" />

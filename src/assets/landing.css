@@ -28,7 +28,7 @@ body{text-transform: none;}
 .landing-page .last-price span{color:#f64749;text-decoration:line-through}
 .landing-page .new-price span{color:#256eff}
 .landing-page .product-detail h2{text-transform:capitalize;color:#12263a;font-size:20px}
-.landing-page .product-detail p{font-size:.9rem;padding:.3rem;opacity:.8; text-align: justify;}
+.landing-page .product-detail p{font-size:.9rem;padding:.3rem;opacity:.8; text-align: left;}
 .landing-page .product-detail ul{margin:1rem 0;font-size:.9rem}
 .landing-page .product-detail ul li{margin:.4rem 0;list-style:none;padding-left:1.7rem;font-weight:600;opacity:.9;position:relative}
 .landing-page .purchase-info{margin:1.5rem 0}
@@ -45,12 +45,12 @@ body{text-transform: none;}
 .landing-page .header img{width: 140px;height: 90px;}.header h2{margin:0;font-weight:700;font-size:25px;color:#212529;}
 .landing-page .main-content{margin:40px 0}.card{padding:30px}footer{text-align:center;padding:15px}
 .landing-page .landing-btns{display:flex;align-items:center;}
-.landing-page .landing-btns a:hover{text-decoration:none}
+.landing-page .landing-btns a:hover{background: #009ed6;}
 .landing-page .landing-btns a{    font-size: 20px ! IMPORTANT;
     background: #898989;
     color: #fff;
     padding: 10px 30px;
-    border-radius: 0;
+    border-radius: 25px;
     margin-right: 20px;
     font-weight: 900;
 }
@@ -99,7 +99,7 @@ body{text-transform: none;}
 }
 @media only screen and (max-width: 600px) {
     .landing-page .header-inner{display:block;text-align:center}
-    .landing-page .header img{display:flex;margin:0 auto 15px;width:100px;height:70px}
+    .landing-page .header img{display:flex;margin:0 auto 0;width:80px;height:50px}
     .landing-page .header h2{font-size:20px}.card{padding:20px}
     .landing-page .img-showcase img{height: 300px;}
     .landing-page .main-content{margin:10px 0}
@@ -107,7 +107,7 @@ body{text-transform: none;}
     .landing-page .product-content{padding:15px 0}
     .landing-page .product-content h3{font-size:13px}
     .landing-page .product-detail h2{font-size:15px}
-    .landing-page .landing-btns a{padding:10px;font-size:14px !important}
+    .landing-page .landing-btns a{padding: 10px; font-size: 14px !important; width: 100%; text-align: center;}
     .landing-page .landing-btns{justify-content:space-between}
     .landing-page footer p {font-size: 13px;}
     .blue-btn .content {
@@ -122,6 +122,10 @@ body{text-transform: none;}
     .blue-btn .content h2 {	
         font-size: 15px;
     }
+    .landing-page .header {
+        padding: 10px;
+    }
+    
 }
 
 .halfLineBreak{
