@@ -11,7 +11,7 @@ const PrintCertificate = forwardRef((props, ref) => {
             <div ref={ref}>
             {/* {props.data && data && data.length > 0 && data.map((val, i) => ( */}
             { data && data.crowd && data.crowd > 0 && [...Array(data.crowd)].map((val, i) => (
-                [...Array(3)].map(() => (
+                [...Array(2)].map(() => (
 
                   // eslint-disable-next-line react/jsx-key
                 <div
@@ -380,7 +380,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                         </tbody>
                       </table>
                       <a
-                        href={`mailto:${val?.brand_email}`}
+                        href={`mailto:${data?.brand_email}`}
                         style={{
                           margin: "5px 0 !important",
                           color: "#000",
@@ -389,7 +389,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                           textTransform: "lowercase"
                         }}
                       >
-                        {val?.brand_email}
+                        {data?.brand_email}
                       </a>
                     </div>
                     <div className="col-md-6 col-sm-6 right2 pl-2">
@@ -726,7 +726,7 @@ const PrintCertificate = forwardRef((props, ref) => {
                           textTransform: "lowercase"
                         }}
                       >
-                        {val?.brand_website}
+                        {data?.brand_website}
                       </a>
                     </div>
                   </div>

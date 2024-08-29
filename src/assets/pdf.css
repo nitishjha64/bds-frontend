@@ -61,7 +61,7 @@
         .doc-cnt2 td{width: 50% !important;}
         @media print {
             @page {margin: 20px !important;}
-            body {padding: 75px;}
+            body {padding: 20px;}
         }
         @media print {
             .pdf-doc {margin: 0; border: initial;border-radius: initial;width: initial; min-height: initial;  box-shadow: initial; background: initial; page-break-after: always; }
