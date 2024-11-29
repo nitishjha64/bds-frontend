@@ -101,7 +101,7 @@ body{text-transform: none;}
     .landing-page .header-inner{display:block;text-align:center}
     .landing-page .header img{display:flex;margin:0 auto 0;width:80px;height:50px}
     .landing-page .header h2{font-size:20px}.card{padding:20px}
-    .landing-page .img-showcase img{height: 300px;}
+    .landing-page .img-showcase img{height: auto;}
     .landing-page .main-content{margin:10px 0}
     .landing-page .product-title{font-size:26px}
     .landing-page .product-content{padding:15px 0}

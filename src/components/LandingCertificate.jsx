@@ -91,8 +91,8 @@ const LandingCertificate = () => {
                             <p>
                                 Dear Customer,<br/><br/>
                                 Congratulations on your recent purchase of <b>{certData.name}</b> from BDS Machines, Germany.<br/><hr className='halfLineBreak'/>
-                                Should you have any questions or need assistance, please feel free to reach out to us at. Our team is here to ensure you have the best possible experience with your new <b>{certData.name}</b>.<br/><hr className='halfLineBreak'/>
-                                Please click on the below button for Product Specifications, Video, Spare Part List, Technical Drawing, User Manual, Data Sheet or to Contact  Us for Support.<br/><hr className='halfLineBreak'/>
+                                Should you have any questions or need assistance, please feel free to reach out to us. Our team is here to ensure you have the best possible experience with your new <b>{certData.name}</b>.<br/><hr className='halfLineBreak'/>
+                                Please click on the below button for Product Specifications, Video, Spare Part List, Technical Drawing, User Manual, Data Sheet or to Contact  Us for support.<br/><hr className='halfLineBreak'/>
                                 <div className="landing-btns">
                                     <a target="_blank" href={`${certData.link_en}`}>PRODUCT PAGE</a>
                                 </div><br/>

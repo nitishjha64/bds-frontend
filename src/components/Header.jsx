@@ -29,7 +29,14 @@ const Header = () => {
                     <nav className="navbar navbar-expand-lg navbar-light bg-light">
                         <img src="/static/bds-white-logo.png" />
                         {/* <i className="fa fa-sign-out" aria-hidden="true" data-toggle="modal" data-target="#logout-modal"></i> */}
-                        <i className="fa fa-sign-out" onClick={logoutClick} aria-hidden="true" data-toggle="modal" data-target="#logout-modal"><FontAwesomeIcon icon={faRightFromBracket} /></i>
+                        
+                        <div>
+                        <a href="https://bds-pruefbericht.de/label">
+                            <button id="wizard-next" type="button" className="btn btn-irv float-left mt-0 mr-5">{'ETIKETTEN DRUCKEN'}</button>
+                        </a>
+                            <i className="fa fa-sign-out" onClick={logoutClick} aria-hidden="true" data-toggle="modal" data-target="#logout-modal"><FontAwesomeIcon icon={faRightFromBracket} /></i>
+                        </div>
+                        
                     </nav>
                 </header>
             </div>
