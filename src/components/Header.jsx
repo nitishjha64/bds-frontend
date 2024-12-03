@@ -5,7 +5,7 @@ import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 
-const Header = () => {
+const Header = ({activeTab}) => {
     const navigate = useNavigate();
     const [modalShow, setModalShow] = useState(false);
 
@@ -31,9 +31,12 @@ const Header = () => {
                         {/* <i className="fa fa-sign-out" aria-hidden="true" data-toggle="modal" data-target="#logout-modal"></i> */}
                         
                         <div>
-                        <a href="https://bds-pruefbericht.de/label">
-                            <button id="wizard-next" type="button" className="btn btn-irv float-left mt-0 mr-5">{'ETIKETTEN DRUCKEN'}</button>
-                        </a>
+                            
+                        {activeTab === 'certificate_list' && 
+                            <a href={`https://bds-pruefbericht.de/label?token=${localStorage.getItem('token')}`} target='_blank' rel="noopener noreferrer">
+                                <button id="wizard-next" type="button" className="btn btn-irv float-left mt-0 mr-5">{'ETIKETTEN DRUCKEN'}</button>
+                            </a>
+                        }
                             <i className="fa fa-sign-out" onClick={logoutClick} aria-hidden="true" data-toggle="modal" data-target="#logout-modal"><FontAwesomeIcon icon={faRightFromBracket} /></i>
                         </div>
                         

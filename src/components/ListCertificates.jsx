@@ -93,13 +93,14 @@ const ListCertificates = () => {
 
     const handlePerRowsChange = async (newPerPage, page) => {
         setLoading(true);
-        const response = await axios.get(`${process.env.REACT_APP_API_URL}/certificates?page=${page}&per_page=${newPerPage}`,{
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/certificates?page=1&per_page=${newPerPage}`,{
                 headers: {
                     'Authorization': localStorage.getItem('token'),
                 }
             });
         setData(response.data.data);
         setPerPage(newPerPage);
+        setCurrentPage(1);
         setLoading(false);
       };
 
@@ -130,7 +131,7 @@ const ListCertificates = () => {
                         </div>
                     </div>
                 </div>
-                <DataTable columns={columns} data={data} progressPending={loading} pagination paginationServer paginationTotalRows={totalRows} paginationDefaultPage={currentPage} onChangeRowsPerPage={handlePerRowsChange} onChangePage={handlePageChange} paginationComponentOptions={paginationComponentOptions}/>
+                <DataTable columns={columns} data={data} progressPending={loading} pagination paginationServer paginationTotalRows={totalRows} paginationDefaultPage={currentPage} paginationPerPage={perPage} onChangeRowsPerPage={handlePerRowsChange} onChangePage={handlePageChange} paginationComponentOptions={paginationComponentOptions}/>
                
             </>
         )
